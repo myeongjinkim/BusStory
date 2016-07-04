@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E24547E1D2A63B10033A11C /* DisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E24547D1D2A63B10033A11C /* DisplayTableViewController.m */; };
 		5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD61D28FFC000CA0ECB /* main.m */; };
 		5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */; };
 		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E24547C1D2A63B10033A11C /* DisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewController.h; sourceTree = "<group>"; };
+		5E24547D1D2A63B10033A11C /* DisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewController.m; sourceTree = "<group>"; };
 		5EFB2AD21D28FFC000CA0ECB /* Bus Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bus Story.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFB2AD61D28FFC000CA0ECB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +57,8 @@
 				5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */,
 				5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */,
 				5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */,
+				5E24547C1D2A63B10033A11C /* DisplayTableViewController.h */,
+				5E24547D1D2A63B10033A11C /* DisplayTableViewController.m */,
 				5EFB2AE61D28FFC000CA0ECB /* Info.plist */,
 				5EFB2AD51D28FFC000CA0ECB /* Supporting Files */,
 			);
@@ -139,6 +144,7 @@
 			files = (
 				5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */,
 				5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */,
+				5E24547E1D2A63B10033A11C /* DisplayTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
