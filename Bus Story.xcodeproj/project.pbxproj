@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD61D28FFC000CA0ECB /* main.m */; };
 		5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */; };
-		5EFB2ADD1D28FFC000CA0ECB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2ADC1D28FFC000CA0ECB /* ViewController.m */; };
-		5EFB2AE01D28FFC000CA0ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2ADE1D28FFC000CA0ECB /* Main.storyboard */; };
-		5EFB2AE21D28FFC000CA0ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AE11D28FFC000CA0ECB /* Assets.xcassets */; };
-		5EFB2AE51D28FFC000CA0ECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AE31D28FFC000CA0ECB /* LaunchScreen.storyboard */; };
+		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +17,8 @@
 		5EFB2AD61D28FFC000CA0ECB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5EFB2ADB1D28FFC000CA0ECB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5EFB2ADC1D28FFC000CA0ECB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5EFB2ADF1D28FFC000CA0ECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5EFB2AE11D28FFC000CA0ECB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5EFB2AE41D28FFC000CA0ECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EFB2AE61D28FFC000CA0ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +51,9 @@
 		5EFB2AD41D28FFC000CA0ECB /* Bus Story */ = {
 			isa = PBXGroup;
 			children = (
+				5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */,
 				5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */,
 				5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */,
-				5EFB2ADB1D28FFC000CA0ECB /* ViewController.h */,
-				5EFB2ADC1D28FFC000CA0ECB /* ViewController.m */,
-				5EFB2ADE1D28FFC000CA0ECB /* Main.storyboard */,
-				5EFB2AE11D28FFC000CA0ECB /* Assets.xcassets */,
-				5EFB2AE31D28FFC000CA0ECB /* LaunchScreen.storyboard */,
 				5EFB2AE61D28FFC000CA0ECB /* Info.plist */,
 				5EFB2AD51D28FFC000CA0ECB /* Supporting Files */,
 			);
@@ -110,6 +99,7 @@
 				TargetAttributes = {
 					5EFB2AD11D28FFC000CA0ECB = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 756397BG7G;
 					};
 				};
 			};
@@ -136,9 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFB2AE51D28FFC000CA0ECB /* LaunchScreen.storyboard in Resources */,
-				5EFB2AE21D28FFC000CA0ECB /* Assets.xcassets in Resources */,
-				5EFB2AE01D28FFC000CA0ECB /* Main.storyboard in Resources */,
+				5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,32 +137,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EFB2ADD1D28FFC000CA0ECB /* ViewController.m in Sources */,
 				5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */,
 				5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		5EFB2ADE1D28FFC000CA0ECB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5EFB2ADF1D28FFC000CA0ECB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5EFB2AE31D28FFC000CA0ECB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5EFB2AE41D28FFC000CA0ECB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5EFB2AE71D28FFC000CA0ECB /* Debug */ = {
@@ -265,10 +233,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Bus Story/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "teamProject2-testPjt.Bus-Story";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -276,10 +247,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Bus Story/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "teamProject2-testPjt.Bus-Story";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -302,6 +276,7 @@
 				5EFB2AEB1D28FFC000CA0ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
