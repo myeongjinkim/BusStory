@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E24547E1D2A63B10033A11C /* DisplayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E24547D1D2A63B10033A11C /* DisplayTableViewController.m */; };
+		5E4954A71D2FA7BC000B47D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E4954A61D2FA7BC000B47D9 /* LaunchScreen.storyboard */; };
+		5E4954AD1D2FAA5B000B47D9 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954AC1D2FAA5B000B47D9 /* SetViewController.m */; };
+		5E4954B01D2FAA73000B47D9 /* BusStopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954AF1D2FAA73000B47D9 /* BusStopViewController.m */; };
+		5E4954B31D2FAA91000B47D9 /* BookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */; };
+		5E4954B61D2FAABE000B47D9 /* BusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954B51D2FAABE000B47D9 /* BusViewController.m */; };
+		5E4954B91D2FAAD6000B47D9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954B81D2FAAD6000B47D9 /* SearchViewController.m */; };
+		5E4954BF1D2FE049000B47D9 /* BusStopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954BE1D2FE049000B47D9 /* BusStopModel.m */; };
+		5E4954C21D2FE22B000B47D9 /* BusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954C11D2FE22B000B47D9 /* BusModel.m */; };
 		5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD61D28FFC000CA0ECB /* main.m */; };
 		5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */; };
 		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5E24547C1D2A63B10033A11C /* DisplayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTableViewController.h; sourceTree = "<group>"; };
-		5E24547D1D2A63B10033A11C /* DisplayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayTableViewController.m; sourceTree = "<group>"; };
+		5E4954A61D2FA7BC000B47D9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5E4954AB1D2FAA5B000B47D9 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		5E4954AC1D2FAA5B000B47D9 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		5E4954AE1D2FAA73000B47D9 /* BusStopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopViewController.h; sourceTree = "<group>"; };
+		5E4954AF1D2FAA73000B47D9 /* BusStopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopViewController.m; sourceTree = "<group>"; };
+		5E4954B11D2FAA91000B47D9 /* BookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkViewController.h; sourceTree = "<group>"; };
+		5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkViewController.m; sourceTree = "<group>"; };
+		5E4954B41D2FAABE000B47D9 /* BusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusViewController.h; sourceTree = "<group>"; };
+		5E4954B51D2FAABE000B47D9 /* BusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusViewController.m; sourceTree = "<group>"; };
+		5E4954B71D2FAAD6000B47D9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		5E4954B81D2FAAD6000B47D9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		5E4954BD1D2FE049000B47D9 /* BusStopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopModel.h; sourceTree = "<group>"; };
+		5E4954BE1D2FE049000B47D9 /* BusStopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopModel.m; sourceTree = "<group>"; };
+		5E4954C01D2FE22B000B47D9 /* BusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusModel.h; sourceTree = "<group>"; };
+		5E4954C11D2FE22B000B47D9 /* BusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusModel.m; sourceTree = "<group>"; };
 		5EFB2AD21D28FFC000CA0ECB /* Bus Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bus Story.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EFB2AD61D28FFC000CA0ECB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,10 +77,23 @@
 				5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */,
 				5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */,
 				5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */,
-				5E24547C1D2A63B10033A11C /* DisplayTableViewController.h */,
-				5E24547D1D2A63B10033A11C /* DisplayTableViewController.m */,
 				5EFB2AE61D28FFC000CA0ECB /* Info.plist */,
+				5E4954A61D2FA7BC000B47D9 /* LaunchScreen.storyboard */,
 				5EFB2AD51D28FFC000CA0ECB /* Supporting Files */,
+				5E4954B11D2FAA91000B47D9 /* BookMarkViewController.h */,
+				5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */,
+				5E4954AB1D2FAA5B000B47D9 /* SetViewController.h */,
+				5E4954AC1D2FAA5B000B47D9 /* SetViewController.m */,
+				5E4954AE1D2FAA73000B47D9 /* BusStopViewController.h */,
+				5E4954AF1D2FAA73000B47D9 /* BusStopViewController.m */,
+				5E4954B41D2FAABE000B47D9 /* BusViewController.h */,
+				5E4954B51D2FAABE000B47D9 /* BusViewController.m */,
+				5E4954B71D2FAAD6000B47D9 /* SearchViewController.h */,
+				5E4954B81D2FAAD6000B47D9 /* SearchViewController.m */,
+				5E4954BD1D2FE049000B47D9 /* BusStopModel.h */,
+				5E4954BE1D2FE049000B47D9 /* BusStopModel.m */,
+				5E4954C01D2FE22B000B47D9 /* BusModel.h */,
+				5E4954C11D2FE22B000B47D9 /* BusModel.m */,
 			);
 			path = "Bus Story";
 			sourceTree = "<group>";
@@ -131,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E4954A71D2FA7BC000B47D9 /* LaunchScreen.storyboard in Resources */,
 				5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,9 +176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E4954B31D2FAA91000B47D9 /* BookMarkViewController.m in Sources */,
+				5E4954C21D2FE22B000B47D9 /* BusModel.m in Sources */,
+				5E4954B61D2FAABE000B47D9 /* BusViewController.m in Sources */,
 				5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */,
+				5E4954B01D2FAA73000B47D9 /* BusStopViewController.m in Sources */,
+				5E4954AD1D2FAA5B000B47D9 /* SetViewController.m in Sources */,
 				5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */,
-				5E24547E1D2A63B10033A11C /* DisplayTableViewController.m in Sources */,
+				5E4954BF1D2FE049000B47D9 /* BusStopModel.m in Sources */,
+				5E4954B91D2FAAD6000B47D9 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
