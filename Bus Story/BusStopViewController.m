@@ -16,7 +16,9 @@ enum cellBusStop{
 enum cellBusList{
     BUSNUM=1,
     FINISHBUSSTOP,
-    REMAINBUSSTOP
+    REMAINBUSSTOP,
+    BOOKMARKSWITCH,
+    ALARMSWITCH
 };
 
 @interface BusStopViewController ()
@@ -102,12 +104,15 @@ enum cellBusList{
         UILabel *labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
         UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
         UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
+        UISwitch *BookMarkSwitch = (UISwitch*)[cell viewWithTag:BOOKMARKSWITCH];
+        UISwitch *AlarmSwitch = (UISwitch*)[cell viewWithTag:ALARMSWITCH];
     
         
         [labelBusNum setText:nil];
         [labelFinishBusStop setText:nil];
         [labelRemainBusStop setText:nil];
-    
+        [BookMarkSwitch setOn:FALSE];
+        [AlarmSwitch setOn:FALSE];
     
         NSDictionary *dicInfo = self.modelBusStop.busList[indexPath.row];
     
@@ -115,12 +120,22 @@ enum cellBusList{
         NSString *BusNum = dicInfo[@"busnum"];
         NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
-    
+        NSString *BookMark = dicInfo[@"bookmark"];
 
     
         [labelBusNum setText: BusNum];
         [labelFinishBusStop setText: FinishBusStop];
         [labelRemainBusStop setText: RemainBusStop];
+                              
+        if([BookMark isEqualToString:@"0"])
+        {
+            [BookMarkSwitch setOn:FALSE];
+        }
+        else{
+            [BookMarkSwitch setOn:TRUE];
+        }
+        
+        [AlarmSwitch setOn:FALSE];
     }
     
     return cell;

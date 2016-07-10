@@ -10,4 +10,7 @@
 
 @interface BookMarkModel : NSObject
 
+@property (nonatomic, assign) NSInteger selectedBookMark;
+@property (nonatomic, strong) NSMutableArray *bookMark;
+
 @end

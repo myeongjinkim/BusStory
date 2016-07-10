@@ -7,6 +7,15 @@
 //
 
 #import "BookMarkViewController.h"
+#import "BookMarkModel.h"
+
+enum cellBusList{
+    BUSSTOPNAME=1,
+    FINISHBUSSTOP,
+    BUSNUM,
+    REMAINBUSSTOP,
+    ALARMSWITCH
+};
 
 @interface BookMarkViewController ()
 
@@ -16,6 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    id app = [UIApplication sharedApplication];
+    id appDelegate = [app delegate];
+    self.modelBookMark = [appDelegate modelBookMark];
+    [[self tableView] setRowHeight:100.0f];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,24 +47,66 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return self.modelBookMark.bookMark.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    
+    UITableViewCell *cell;
+    
+    if(indexPath.row==0)
+    {
+        
+        static NSString *CellIndetifier = @"CellSearchButton";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIndetifier forIndexPath:indexPath];
+
+        
+    }else
+    {
+        static NSString *CellIndetifier = @"CellBookMark";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIndetifier forIndexPath:indexPath];
+        
+        UILabel *labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
+        UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
+        UILabel *labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
+        UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
+        UISwitch *AlarmSwitch = (UISwitch*)[cell viewWithTag:ALARMSWITCH];
+        
+        [labelBusStopName setText:nil];
+        [labelFinishBusStop setText:nil];
+        [labelRemainBusStop setText:nil];
+        [labelBusNum setText:nil];
+        
+        
+        NSDictionary *dicInfo = self.modelBookMark.bookMark[indexPath.row];//search button -1, set tablerow +1
+        
+        
+        NSString *BusStopName = [[dicInfo[@"busstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"arrivebusstop"]];
+        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *BusNum = dicInfo[@"busnum"];
+        NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
+        
+        
+        
+        [labelBusStopName setText:BusStopName];
+        [labelFinishBusStop setText: FinishBusStop];
+        [labelBusNum setText: BusNum];
+        [labelRemainBusStop setText: RemainBusStop];
+        [AlarmSwitch setOn:FALSE];
+        
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

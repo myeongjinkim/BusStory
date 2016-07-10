@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BookMarkModel.h"
 
 @interface BookMarkViewController : UITableViewController
+
+@property (nonatomic, strong) BookMarkModel *modelBookMark;
 
 @end

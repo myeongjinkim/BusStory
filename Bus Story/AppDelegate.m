@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BusStopModel.h"
 #import "BusModel.h"
+#import "BookMarkModel.h"
 @interface AppDelegate ()
 
 @end
@@ -23,6 +24,10 @@
     
     self.modelBus = [[BusModel alloc] init];
     self.modelBus.selectedBusStop = -1;
+    
+    self.modelBookMark = [[BookMarkModel alloc] init];
+    self.modelBookMark.selectedBookMark = -1;
+    
     return YES;
 }
 
