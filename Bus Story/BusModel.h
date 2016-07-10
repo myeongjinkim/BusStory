@@ -10,4 +10,7 @@
 
 @interface BusModel : NSObject
 
+@property (nonatomic, assign) NSInteger selectedBusStop;
+@property (nonatomic, strong) NSMutableArray *busLine;
+
 @end

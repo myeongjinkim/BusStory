@@ -9,6 +9,10 @@
 #import "BusStopViewController.h"
 #import "BusStopModel.h"
 
+enum cellBusStop{
+    BUSSTOPNUM=10,
+    BUSSTOPFINISH
+};
 enum cellBusList{
     BUSNUM=1,
     FINISHBUSSTOP,
@@ -29,6 +33,9 @@ enum cellBusList{
     id appDelegate = [app delegate];
     self.modelBusStop = [appDelegate modelBusStop];
     [[self tableView] setRowHeight:100.0f];
+    
+    NSDictionary *dicInfo = self.modelBusStop.busList[0];
+    self.title = dicInfo[@"busstopname"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,39 +58,71 @@ enum cellBusList{
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return self.modelBusStop.busList.count;
+    return self.modelBusStop.busList.count+1;
     //return self.modelBusStop.busList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIndetifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIndetifier forIndexPath:indexPath];
-    
-    UILabel *labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
-    UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
-    UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
+ 
     
     
-    [labelBusNum setText:nil];
-    [labelFinishBusStop setText:nil];
-    [labelRemainBusStop setText:nil];
+    UITableViewCell *cell;
+    
+    if(indexPath.row==0)
+    {
+        static NSString *CellIndetifier = @"CellBusStop";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIndetifier forIndexPath:indexPath];
+        
+        UILabel *labelBusStopNum = (UILabel *)[cell viewWithTag:BUSSTOPNUM];
+        UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:BUSSTOPFINISH];
+
+        
+        [labelBusStopNum setText:nil];
+        [labelFinishBusStop setText:nil];
+        
+        
+        NSDictionary *dicInfo = self.modelBusStop.busList[indexPath.row];
+        
+        
+        NSString *BusStopNum = dicInfo[@"busstopnum"];
+        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        
+        
+        
+        [labelBusStopNum setText: BusStopNum];
+        [labelFinishBusStop setText: FinishBusStop];
+        
+        
+    }
+    else
+    {
+        static NSString *CellIndetifier = @"CellBus";
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIndetifier forIndexPath:indexPath];
+        UILabel *labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
+        UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
+        UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
+    
+        
+        [labelBusNum setText:nil];
+        [labelFinishBusStop setText:nil];
+        [labelRemainBusStop setText:nil];
     
     
-    NSDictionary *dicInfo = self.modelBusStop.busList[indexPath.row];
+        NSDictionary *dicInfo = self.modelBusStop.busList[indexPath.row];
     
     
-    NSString *BusNum = dicInfo[@"busnum"];
-    NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
-    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
+        NSString *BusNum = dicInfo[@"busnum"];
+        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
     
 
     
-    [labelBusNum setText: BusNum];
-    [labelFinishBusStop setText: FinishBusStop];
-    [labelRemainBusStop setText: RemainBusStop];
-    
+        [labelBusNum setText: BusNum];
+        [labelFinishBusStop setText: FinishBusStop];
+        [labelRemainBusStop setText: RemainBusStop];
+    }
     
     return cell;
 }
