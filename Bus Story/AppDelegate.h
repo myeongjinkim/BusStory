@@ -1,17 +1,42 @@
 //
 //  AppDelegate.h
-//  Bus Story
+//  WorldPhotos
 //
-//  Created by Hyun Gyu Kim on 2016. 7. 3..
-//  Copyright © 2016년 Hyun Gyu Kim. All rights reserved.
+//  Created by Abraham Park on 6/22/16.
+//  Copyright © 2016 ebadaq.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
+@class BusStopModel;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (nonatomic, strong) BusStopModel *modelBusStop;
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

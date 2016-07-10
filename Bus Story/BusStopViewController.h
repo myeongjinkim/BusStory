@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BusStopModel;
+
 @interface BusStopViewController : UITableViewController
+
+@property (nonatomic, strong) BusStopModel *modelBusStop;
 
 @end

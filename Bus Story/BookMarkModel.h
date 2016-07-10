@@ -1,5 +1,5 @@
 //
-//  BusStopModel.h
+//  BookMarkModel.h
 //  Bus Story
 //
 //  Created by Hyun Gyu Kim on 2016. 7. 8..
@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BusStopModel : NSObject
-
-@property (nonatomic, assign) NSInteger selectedIndex;
-@property (nonatomic, strong) NSMutableArray *busList;
+@interface BookMarkModel : NSObject
 
 @end

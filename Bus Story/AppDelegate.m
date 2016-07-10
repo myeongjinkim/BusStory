@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  Bus Story
+//  WorldPhotos
 //
-//  Created by Hyun Gyu Kim on 2016. 7. 3..
-//  Copyright © 2016년 Hyun Gyu Kim. All rights reserved.
+//  Created by Abraham Park on 6/22/16.
+//  Copyright © 2016 ebadaq.com. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "BusStopModel.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.modelBusStop = [[BusStopModel alloc] init];
+    self.modelBusStop.selectedIndex = -1;
     return YES;
 }
 
