@@ -58,8 +58,7 @@ enum cellBusList{
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return self.modelBusStop.busList.count+1;
-    //return self.modelBusStop.busList.count;
+    return self.modelBusStop.busList.count;
 }
 
 
@@ -126,16 +125,11 @@ enum cellBusList{
     
     return cell;
 }
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  //  self.modelBusStop.selectedIndex = indexPath.row;
-    
-    
-    //    DetailViewController *vc = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    //
-    ////    vc.modelWP = self.modelWP;
-    //
-//    //    [self.navigationController pushViewController:vc animated:TRUE];
-//}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.modelBusStop.selectedIndex = indexPath.row;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

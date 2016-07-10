@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class BusStopModel;
+@class BusModel;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) BusStopModel *modelBusStop;
+@property (nonatomic, strong) BusModel *modelBus;
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 
 

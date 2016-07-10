@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BusStopModel.h"
-
+#import "BusModel.h"
 @interface AppDelegate ()
 
 @end
@@ -20,6 +20,9 @@
     
     self.modelBusStop = [[BusStopModel alloc] init];
     self.modelBusStop.selectedIndex = -1;
+    
+    self.modelBus = [[BusModel alloc] init];
+    self.modelBus.selectedBusStop = -1;
     return YES;
 }
 
