@@ -18,7 +18,7 @@
         
         [_busList addObject:@{@"busstopnum":@"000-01",@"busstopname":@"명지대역1",@"finishbusstop":@"강남역"}];
         [_busList addObject:@{@"busnum":@"5001",@"startbusstop":@"명지대1",@"finishbusstop":@"강남역", @"remainbusstop":@"1"}];
-        //버스번호, 기점정류소, 종점정류소, 남은정류소, 버스 즐겨찾기 여부
+        //버스번호, 기점정류소, 종점정류소, 남은정류소, (버스 즐겨찾기 여부 삭제)
         [_busList addObject:@{@"busnum":@"5002",@"startbusstop":@"명지대1",@"finishbusstop":@"강남역", @"remainbusstop":@"2"}];
         
         [_busList addObject:@{@"busnum":@"5003",@"startbusstop":@"명지대1",@"finishbusstop":@"강남역", @"remainbusstop":@"3"}];

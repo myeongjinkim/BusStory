@@ -21,9 +21,9 @@
         [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-02",@"busstopname":@"명지대2",@"bustopsquence":@"2", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
         [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-03",@"busstopname":@"명지대3",@"bustopsquence":@"3", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
         [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-04",@"busstopname":@"명지대4",@"bustopsquence":@"4", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
-        [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-05",@"busstopname":@"명지대5",@"bustopsquence":@"4", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
-        [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-06",@"busstopname":@"명지대6",@"bustopsquence":@"4", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
-        [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-07",@"busstopname":@"명지대7",@"bustopsquence":@"4", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
+        [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-05",@"busstopname":@"명지대5",@"bustopsquence":@"5", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
+        [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-06",@"busstopname":@"명지대6",@"bustopsquence":@"6", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
+        [_busLine addObject:@{@"busnum":@"5000",@"busstopnum":@"000-07",@"busstopname":@"강남역7",@"bustopsquence":@"7", @"firsttime":@"04:00",@"lasttime":@"12:00"}];
     }
     return _busLine;
 }

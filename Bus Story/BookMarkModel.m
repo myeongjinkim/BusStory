@@ -16,7 +16,7 @@
         
         [_bookMark addObject:@{@"alarmset":@"2"}];
         [_bookMark addObject:@{@"busStopnum":@"000-1",@"busstopname":@"명지대역1",@"arrivebusstop":@"강남역1전",@"finishbusstop":@"강남역",@"busnum":@"5000", @"remainbusstop":@"1"}];
-        //버스번호, 정류소번호, 정류소이름, 정류소순서, 첫차시간, 막차시간
+        //정류소번호, 정류소이름, 도착정류소이름, 종점, 버스번호, 몇번째전
         
         [_bookMark addObject:@{@"busStopnum":@"000-2",@"busstopname":@"명지대역2",@"arrivebusstop":@"강남역2전",@"finishbusstop":@"강남역",@"busnum":@"5000", @"remainbusstop":@"1"}];
         
