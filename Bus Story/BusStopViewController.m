@@ -120,7 +120,9 @@ enum cellBusList{
         NSString *BusNum = dicInfo[@"busnum"];
         NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
-        NSString *BookMark = dicInfo[@"bookmark"];
+        
+        
+        NSString *BookMark = @"0"; //이부분에서 북마크여부 받을것.
 
     
         [labelBusNum setText: BusNum];
