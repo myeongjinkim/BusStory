@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E4954A71D2FA7BC000B47D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E4954A61D2FA7BC000B47D9 /* LaunchScreen.storyboard */; };
+		5E4954AD1D2FAA5B000B47D9 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954AC1D2FAA5B000B47D9 /* SetViewController.m */; };
+		5E4954B01D2FAA73000B47D9 /* BusStopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954AF1D2FAA73000B47D9 /* BusStopViewController.m */; };
+		5E4954B31D2FAA91000B47D9 /* BookMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */; };
+		5E4954B61D2FAABE000B47D9 /* BusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954B51D2FAABE000B47D9 /* BusViewController.m */; };
+		5E4954B91D2FAAD6000B47D9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954B81D2FAAD6000B47D9 /* SearchViewController.m */; };
+		5E4954BF1D2FE049000B47D9 /* BusStopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954BE1D2FE049000B47D9 /* BusStopModel.m */; };
+		5E4954C21D2FE22B000B47D9 /* BusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954C11D2FE22B000B47D9 /* BusModel.m */; };
+		5E4954C51D2FE758000B47D9 /* BookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4954C41D2FE758000B47D9 /* BookMarkModel.m */; };
+		5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD61D28FFC000CA0ECB /* main.m */; };
+		5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */; };
+		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
+		91B90D881D32ECCC005108B0 /* bus.db in Resources */ = {isa = PBXBuildFile; fileRef = 91B90D871D32ECCC005108B0 /* bus.db */; };
+		91B90D8B1D32ED43005108B0 /* BusData.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B90D8A1D32ED43005108B0 /* BusData.m */; };
+		91B90D8E1D32ED4E005108B0 /* StationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B90D8D1D32ED4E005108B0 /* StationData.m */; };
+		91B90D911D32EDF4005108B0 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B90D8F1D32EDF4005108B0 /* libsqlite3.0.tbd */; };
+		91B90D921D32EDF4005108B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B90D901D32EDF4005108B0 /* libsqlite3.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5E4954A61D2FA7BC000B47D9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5E4954AB1D2FAA5B000B47D9 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
+		5E4954AC1D2FAA5B000B47D9 /* SetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetViewController.m; sourceTree = "<group>"; };
+		5E4954AE1D2FAA73000B47D9 /* BusStopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopViewController.h; sourceTree = "<group>"; };
+		5E4954AF1D2FAA73000B47D9 /* BusStopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopViewController.m; sourceTree = "<group>"; };
+		5E4954B11D2FAA91000B47D9 /* BookMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkViewController.h; sourceTree = "<group>"; };
+		5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkViewController.m; sourceTree = "<group>"; };
+		5E4954B41D2FAABE000B47D9 /* BusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusViewController.h; sourceTree = "<group>"; };
+		5E4954B51D2FAABE000B47D9 /* BusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusViewController.m; sourceTree = "<group>"; };
+		5E4954B71D2FAAD6000B47D9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		5E4954B81D2FAAD6000B47D9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		5E4954BD1D2FE049000B47D9 /* BusStopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopModel.h; sourceTree = "<group>"; };
+		5E4954BE1D2FE049000B47D9 /* BusStopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopModel.m; sourceTree = "<group>"; };
+		5E4954C01D2FE22B000B47D9 /* BusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusModel.h; sourceTree = "<group>"; };
+		5E4954C11D2FE22B000B47D9 /* BusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusModel.m; sourceTree = "<group>"; };
+		5E4954C31D2FE758000B47D9 /* BookMarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkModel.h; sourceTree = "<group>"; };
+		5E4954C41D2FE758000B47D9 /* BookMarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkModel.m; sourceTree = "<group>"; };
+		5EFB2AD21D28FFC000CA0ECB /* Bus Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bus Story.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFB2AD61D28FFC000CA0ECB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5EFB2AE61D28FFC000CA0ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStoryboard.storyboard; sourceTree = "<group>"; };
+		91B90D871D32ECCC005108B0 /* bus.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = bus.db; path = ../../../bus.db; sourceTree = "<group>"; };
+		91B90D891D32ED43005108B0 /* BusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusData.h; sourceTree = "<group>"; };
+		91B90D8A1D32ED43005108B0 /* BusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusData.m; sourceTree = "<group>"; };
+		91B90D8C1D32ED4E005108B0 /* StationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationData.h; sourceTree = "<group>"; };
+		91B90D8D1D32ED4E005108B0 /* StationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationData.m; sourceTree = "<group>"; };
+		91B90D8F1D32EDF4005108B0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		91B90D901D32EDF4005108B0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5EFB2ACF1D28FFC000CA0ECB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B90D911D32EDF4005108B0 /* libsqlite3.0.tbd in Frameworks */,
+				91B90D921D32EDF4005108B0 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5EFB2AC91D28FFC000CA0ECB = {
+			isa = PBXGroup;
+			children = (
+				91B90D8F1D32EDF4005108B0 /* libsqlite3.0.tbd */,
+				91B90D901D32EDF4005108B0 /* libsqlite3.tbd */,
+				5EFB2AD41D28FFC000CA0ECB /* Bus Story */,
+				5EFB2AD31D28FFC000CA0ECB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5EFB2AD31D28FFC000CA0ECB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EFB2AD21D28FFC000CA0ECB /* Bus Story.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EFB2AD41D28FFC000CA0ECB /* Bus Story */ = {
+			isa = PBXGroup;
+			children = (
+				91B90D861D32EC99005108B0 /* Database */,
+				91B90D851D32EC8D005108B0 /* Special Classes */,
+				91B90D841D32EC80005108B0 /* Model */,
+				91B90D831D32EC73005108B0 /* View Controller */,
+				91B90D821D32EC2E005108B0 /* Nibs */,
+				5EFB2AE61D28FFC000CA0ECB /* Info.plist */,
+				5EFB2AD51D28FFC000CA0ECB /* Supporting Files */,
+			);
+			path = "Bus Story";
+			sourceTree = "<group>";
+		};
+		5EFB2AD51D28FFC000CA0ECB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5EFB2AD61D28FFC000CA0ECB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		91B90D821D32EC2E005108B0 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */,
+				5E4954A61D2FA7BC000B47D9 /* LaunchScreen.storyboard */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		91B90D831D32EC73005108B0 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5E4954B11D2FAA91000B47D9 /* BookMarkViewController.h */,
+				5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */,
+				5E4954AB1D2FAA5B000B47D9 /* SetViewController.h */,
+				5E4954AC1D2FAA5B000B47D9 /* SetViewController.m */,
+				5E4954AE1D2FAA73000B47D9 /* BusStopViewController.h */,
+				5E4954AF1D2FAA73000B47D9 /* BusStopViewController.m */,
+				5E4954B41D2FAABE000B47D9 /* BusViewController.h */,
+				5E4954B51D2FAABE000B47D9 /* BusViewController.m */,
+				5E4954B71D2FAAD6000B47D9 /* SearchViewController.h */,
+				5E4954B81D2FAAD6000B47D9 /* SearchViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		91B90D841D32EC80005108B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E4954BD1D2FE049000B47D9 /* BusStopModel.h */,
+				5E4954BE1D2FE049000B47D9 /* BusStopModel.m */,
+				5E4954C01D2FE22B000B47D9 /* BusModel.h */,
+				5E4954C11D2FE22B000B47D9 /* BusModel.m */,
+				5E4954C31D2FE758000B47D9 /* BookMarkModel.h */,
+				5E4954C41D2FE758000B47D9 /* BookMarkModel.m */,
+				91B90D891D32ED43005108B0 /* BusData.h */,
+				91B90D8A1D32ED43005108B0 /* BusData.m */,
+				91B90D8C1D32ED4E005108B0 /* StationData.h */,
+				91B90D8D1D32ED4E005108B0 /* StationData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		91B90D851D32EC8D005108B0 /* Special Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */,
+				5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */,
+			);
+			name = "Special Classes";
+			sourceTree = "<group>";
+		};
+		91B90D861D32EC99005108B0 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				91B90D871D32ECCC005108B0 /* bus.db */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EFB2AD11D28FFC000CA0ECB /* Bus Story */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EFB2AE91D28FFC000CA0ECB /* Build configuration list for PBXNativeTarget "Bus Story" */;
+			buildPhases = (
+				5EFB2ACE1D28FFC000CA0ECB /* Sources */,
+				5EFB2ACF1D28FFC000CA0ECB /* Frameworks */,
+				5EFB2AD01D28FFC000CA0ECB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bus Story";
+			productName = "Bus Story";
+			productReference = 5EFB2AD21D28FFC000CA0ECB /* Bus Story.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5EFB2ACA1D28FFC000CA0ECB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Hyun Gyu Kim";
+				TargetAttributes = {
+					5EFB2AD11D28FFC000CA0ECB = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 756397BG7G;
+					};
+				};
+			};
+			buildConfigurationList = 5EFB2ACD1D28FFC000CA0ECB /* Build configuration list for PBXProject "Bus Story" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5EFB2AC91D28FFC000CA0ECB;
+			productRefGroup = 5EFB2AD31D28FFC000CA0ECB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5EFB2AD11D28FFC000CA0ECB /* Bus Story */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5EFB2AD01D28FFC000CA0ECB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E4954A71D2FA7BC000B47D9 /* LaunchScreen.storyboard in Resources */,
+				91B90D881D32ECCC005108B0 /* bus.db in Resources */,
+				5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5EFB2ACE1D28FFC000CA0ECB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B90D8B1D32ED43005108B0 /* BusData.m in Sources */,
+				5E4954B31D2FAA91000B47D9 /* BookMarkViewController.m in Sources */,
+				5E4954C21D2FE22B000B47D9 /* BusModel.m in Sources */,
+				5E4954B61D2FAABE000B47D9 /* BusViewController.m in Sources */,
+				91B90D8E1D32ED4E005108B0 /* StationData.m in Sources */,
+				5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */,
+				5E4954B01D2FAA73000B47D9 /* BusStopViewController.m in Sources */,
+				5E4954AD1D2FAA5B000B47D9 /* SetViewController.m in Sources */,
+				5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */,
+				5E4954BF1D2FE049000B47D9 /* BusStopModel.m in Sources */,
+				5E4954B91D2FAAD6000B47D9 /* SearchViewController.m in Sources */,
+				5E4954C51D2FE758000B47D9 /* BookMarkModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5EFB2AE71D28FFC000CA0ECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EFB2AE81D28FFC000CA0ECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5EFB2AEA1D28FFC000CA0ECB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Bus Story/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "teamProject2-testPjt.Bus-Story";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5EFB2AEB1D28FFC000CA0ECB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Bus Story/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "teamProject2-testPjt.Bus-Story";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EFB2ACD1D28FFC000CA0ECB /* Build configuration list for PBXProject "Bus Story" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EFB2AE71D28FFC000CA0ECB /* Debug */,
+				5EFB2AE81D28FFC000CA0ECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EFB2AE91D28FFC000CA0ECB /* Build configuration list for PBXNativeTarget "Bus Story" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EFB2AEA1D28FFC000CA0ECB /* Debug */,
+				5EFB2AEB1D28FFC000CA0ECB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5EFB2ACA1D28FFC000CA0ECB /* Project object */;
+}
