@@ -8,6 +8,7 @@
 
 #import "BookMarkViewController.h"
 #import "BookMarkModel.h"
+#import "SetViewController.h"
 
 enum cellBusList{
     BUSSTOPNAME=1,
@@ -30,7 +31,6 @@ enum cellBusList{
     id appDelegate = [app delegate];
     self.modelBookMark = [appDelegate modelBookMark];
     [[self tableView] setRowHeight:100.0f];
-    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -74,11 +74,17 @@ enum cellBusList{
         static NSString *CellIndetifier = @"CellBookMark";
         cell = [tableView dequeueReusableCellWithIdentifier:CellIndetifier forIndexPath:indexPath];
         
-        UILabel *labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
-        UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
-        UILabel *labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
-        UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
-        UISwitch *AlarmSwitch = (UISwitch*)[cell viewWithTag:ALARMSWITCH];
+        UILabel *labelBusStopName;
+        UILabel *labelFinishBusStop;
+        UILabel *labelBusNum;
+        UILabel *labelRemainBusStop;
+        UISwitch *AlarmSwitch;
+        
+        labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
+        labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
+        labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
+        labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
+        AlarmSwitch = (UISwitch*)[cell viewWithTag:ALARMSWITCH];
         
         [labelBusStopName setText:nil];
         [labelFinishBusStop setText:nil];
@@ -89,7 +95,7 @@ enum cellBusList{
         NSDictionary *dicInfo = self.modelBookMark.bookMark[indexPath.row];//search button -1, set tablerow +1
         
         
-        NSString *BusStopName = [[dicInfo[@"busstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"arrivebusstop"]];
+        NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstop"]];
         NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
         NSString *BusNum = dicInfo[@"busnum"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
@@ -100,11 +106,38 @@ enum cellBusList{
         [labelFinishBusStop setText: FinishBusStop];
         [labelBusNum setText: BusNum];
         [labelRemainBusStop setText: RemainBusStop];
-        [AlarmSwitch setOn:FALSE];
+        [AlarmSwitch setOn:FALSE animated:YES];
+        AlarmSwitch.tag=indexPath.row;
+        [AlarmSwitch addTarget:self action:@selector(AlarmSwitch:) forControlEvents:UIControlEventValueChanged];
         
     }
     
     return cell;
+}
+
+-(void)AlarmSwitch:(id)sender
+{
+    UISwitch *AlarmSwitch=sender;
+    if(AlarmSwitch.on){
+        NSDictionary *dicInfo = self.modelBookMark.bookMark[0];
+        NSString *AlarmSet = dicInfo[@"alarmset"];
+        
+        dicInfo = self.modelBookMark.bookMark[AlarmSwitch.tag];
+        NSString *GetInBusStopName = dicInfo[@"getinbusstopname"];
+        NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
+        NSString *BusNum = dicInfo[@"busnum"];
+        NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
+        
+         NSMutableArray *AlarmInfo = [@[] mutableCopy];
+        [AlarmInfo addObject:@{@"alarmset":AlarmSet,@"busnum":BusNum,@"getinbusstopname":GetInBusStopName,@"getoutbusstop":GetOutBusStopName, @"remainbusstop":RemainBusStop}];
+        
+        
+        
+        
+        
+
+        NSLog(@"%d,%@",AlarmSwitch.tag, AlarmInfo);
+    }
 }
 
 

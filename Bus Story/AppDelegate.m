@@ -28,6 +28,8 @@
     self.modelBookMark = [[BookMarkModel alloc] init];
     self.modelBookMark.selectedBookMark = -1;
     
+    
+    
     return YES;
 }
 
