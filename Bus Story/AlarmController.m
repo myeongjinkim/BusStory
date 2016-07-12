@@ -13,15 +13,15 @@
 -(void) alarmStart: (NSMutableArray *)modelAlarmStart{
     
     NSDictionary *dicInfo = modelAlarmStart[0];
+    NSString *AlarmSet = dicInfo[@"alarmset"];
     NSString *BusNum = dicInfo[@"busnum"];
     NSString *GetInBusStopName = dicInfo[@"getinbusstopname"];
     NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
     NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
     
-    NSLog(@" %@, %@, %@, %@",BusNum, GetInBusStopName, GetOutBusStopName, RemainBusStop);
-    
-    
-
+    NSLog(@" %@, %@, %@, %@, %@", AlarmSet, BusNum, GetInBusStopName, GetOutBusStopName, RemainBusStop);
     
 }
+
+
 @end

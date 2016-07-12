@@ -31,42 +31,57 @@
     
     self.modelAlarm = [[AlarmModel alloc] init];
     
-    NSNumber* timeTextField;
     
-    timeTextField=[NSNumber numberWithInt:3];;
+    [self.window makeKeyAndVisible];
     
-    UILocalNotification *localNofication = [[UILocalNotification alloc] init];
+    //통지시간 정하기
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    [dateComps setYear:2011];
+    [dateComps setMonth:3];
+    [dateComps setDay:22];
+    [dateComps setHour:15];
+    [dateComps setMinute:30];
+    [dateComps setSecond:0];
+    NSDate *date = [calendar dateFromComponents:dateComps];
+    [dateComps release];
     
-    if (localNofication == nil)
+    UILocalNotification *localNotif = [[UILocalNotification alloc]init];
+    if (localNotif != nil)
     {
-        return YES;
+        //통지시간
+        localNotif.fireDate = date;
+        localNotif.timeZone = [NSTimeZone defaultTimeZone];
+        
+        //Payload
+        localNotif.alertBody = [NSString stringWithFormat:@"내부통지 %@",date];
+        localNotif.alertAction = @"상세보기";
+        localNotif.soundName = UILocalNotificationDefaultSoundName;
+        localNotif.applicationIconBadgeNumber = 1;
+        
+        //Custom Data
+        NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"mypage" forKey:@"page"];
+        localNotif.userInfo = infoDict;
+        
+        //Local Notification 등록
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+        
     }
-    NSDate *pushDate = [[NSDate date] dateByAddingTimeInterval:[timeTextField intValue]];
-    
-    localNofication.fireDate = pushDate;
-    localNofication.timeZone = [NSTimeZone defaultTimeZone];
-    localNofication.alertBody = @"Local Push Notification!";
-    localNofication.alertAction = @"View";
-    localNofication.soundName = UILocalNotificationDefaultSoundName;
-    localNofication.applicationIconBadgeNumber = 1;
-    
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject: @"오늘의 일정은 로컬푸시를 테스트하는 것 입니다" forKey:@"message"];
-    localNofication.userInfo = userInfo;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNofication];
-
+    [localNotif release];
     
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

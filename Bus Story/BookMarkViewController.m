@@ -142,11 +142,59 @@ enum cellBusList{
          [self.modelAlarm setAlarm:AlarmSet BusNum:BusNum GetInBusStopName:GetInBusStopName GetOutBusStopName:GetOutBusStopName RemainBusStop:RemainBusStop];
        
         
+        [self alarmStart];
         
-        [self.alarmController alarmStart:self.modelAlarm.alarm];
+        //[self.alarmController alarmStart:self.modelAlarm.alarm];
+        
         
     }
 }
+
+-(void)alarmStart{
+    
+    NSDictionary *dicInfo = self.modelAlarm.alarm[0];
+    NSString *AlarmSet = dicInfo[@"alarmset"];
+    NSString *BusNum = dicInfo[@"busnum"];
+    NSString *GetInBusStopName = dicInfo[@"getinbusstopname"];
+    NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
+    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
+    
+    NSLog(@" %@, %@, %@, %@, %@", AlarmSet, BusNum, GetInBusStopName, GetOutBusStopName, RemainBusStop);
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"알림입니다" message:@"네" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+    // UILocalNotification 객체 생성
+    UILocalNotification *noti = [[UILocalNotification alloc]init];
+    
+    // 알람 발생 시각 설정. 5초후로 설정. NSDate 타입.
+    noti.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
+    
+    // timeZone 설정.
+    noti.timeZone = [NSTimeZone systemTimeZone];
+    
+    // 알림 메시지 설정
+    noti.alertBody = @"Just Do It";
+    
+    // 알림 액션 설정
+    noti.alertAction = @"GOGO";
+    
+    // 아이콘 뱃지 넘버 설정. 임의로 1 입력
+    noti.applicationIconBadgeNumber = 1;
+    
+    // 알림 사운드 설정. 자체 제작 사운드도 가능. (if nil = no sound)
+    noti.soundName = UILocalNotificationDefaultSoundName;
+    
+    // 임의의 사용자 정보 설정. 알림 화면엔 나타나지 않음
+    noti.userInfo = [NSDictionary dictionaryWithObject:@"My User Info" forKey:@"User Info"];
+    
+    // UIApplication을 이용하여 알림을 등록.
+    [[UIApplication sharedApplication] scheduleLocalNotification:noti];
+    
+    
+}
+
 
 
 /*
