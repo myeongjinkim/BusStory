@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "BookMarkModel.h"
+#import "AlarmModel.h"
+#import "AlarmController.h"
 
 @interface BookMarkViewController : UITableViewController
 
 @property (nonatomic, strong) BookMarkModel *modelBookMark;
+@property (nonatomic, strong) AlarmModel *modelAlarm;
+@property (nonatomic, strong) AlarmController *alarmController;
 
 @end

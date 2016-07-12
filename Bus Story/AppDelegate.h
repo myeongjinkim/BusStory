@@ -11,12 +11,14 @@
 @class BusStopModel;
 @class BusModel;
 @class BookMarkModel;
+@class AlarmModel;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) BusStopModel *modelBusStop;
 @property (nonatomic, strong) BusModel *modelBus;
 @property (nonatomic, strong) BookMarkModel *modelBookMark;
+@property (nonatomic, strong) AlarmModel *modelAlarm;
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 
 

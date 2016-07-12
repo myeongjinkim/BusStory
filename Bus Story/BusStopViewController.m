@@ -88,7 +88,7 @@ enum cellBusList{
         
         
         NSString *BusStopNum = dicInfo[@"busstopnum"];
-        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
         
         
         
@@ -118,7 +118,7 @@ enum cellBusList{
     
     
         NSString *BusNum = dicInfo[@"busnum"];
-        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
         
         
@@ -129,7 +129,7 @@ enum cellBusList{
         [labelFinishBusStop setText: FinishBusStop];
         [labelRemainBusStop setText: RemainBusStop];
                               
-        if([BookMark isEqualToString:@"0"])
+        if([BookMark isEqualToString:@"0"])//북마크여부 판단
         {
             [BookMarkSwitch setOn:FALSE];
         }

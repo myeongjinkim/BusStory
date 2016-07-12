@@ -91,7 +91,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="I9e-Z8-lfn" kind="push" id="P0H-Ee-4Tc"/>
+                                    <segue destination="I9e-Z8-lfn" kind="push" id="GWI-g7-yaI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -217,15 +217,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="정류소 정보" id="l7o-t3-lPr">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="RRJ-B6-DWO">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="msM-Qd-nAQ">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="home"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="정류소 정보" id="l7o-t3-lPr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZP-p6-rwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -524,15 +516,7 @@
                             <outlet property="delegate" destination="o2l-xs-752" id="uvw-m7-lum"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="버스정보" id="ZMT-8J-9aV">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="zVM-P8-jpL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pYj-mJ-qMZ">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="home"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="버스정보" id="ZMT-8J-9aV"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="arN-N9-sir" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,7 +525,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="P0H-Ee-4Tc"/>
+        <segue reference="GWI-g7-yaI"/>
         <segue reference="afC-1f-Bvm"/>
     </inferredMetricsTieBreakers>
 </document>

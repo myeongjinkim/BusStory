@@ -19,6 +19,8 @@
 		5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD61D28FFC000CA0ECB /* main.m */; };
 		5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */; };
 		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
+		5EFBC48E1D34DBE000A6C3B5 /* AlarmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBC48D1D34DBE000A6C3B5 /* AlarmModel.m */; };
+		5EFBC4971D350DAF00A6C3B5 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBC4961D350DAF00A6C3B5 /* AlarmController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5EFB2AE61D28FFC000CA0ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStoryboard.storyboard; sourceTree = "<group>"; };
+		5EFBC48C1D34DBE000A6C3B5 /* AlarmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmModel.h; sourceTree = "<group>"; };
+		5EFBC48D1D34DBE000A6C3B5 /* AlarmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmModel.m; sourceTree = "<group>"; };
+		5EFBC4951D350DAF00A6C3B5 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
+		5EFBC4961D350DAF00A6C3B5 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,10 @@
 				5E4954C11D2FE22B000B47D9 /* BusModel.m */,
 				5E4954C31D2FE758000B47D9 /* BookMarkModel.h */,
 				5E4954C41D2FE758000B47D9 /* BookMarkModel.m */,
+				5EFBC48C1D34DBE000A6C3B5 /* AlarmModel.h */,
+				5EFBC48D1D34DBE000A6C3B5 /* AlarmModel.m */,
+				5EFBC4951D350DAF00A6C3B5 /* AlarmController.h */,
+				5EFBC4961D350DAF00A6C3B5 /* AlarmController.m */,
 				5EFB2AD51D28FFC000CA0ECB /* Supporting Files */,
 			);
 			path = "Bus Story";
@@ -186,9 +196,11 @@
 				5E4954B61D2FAABE000B47D9 /* BusViewController.m in Sources */,
 				5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */,
 				5E4954B01D2FAA73000B47D9 /* BusStopViewController.m in Sources */,
+				5EFBC48E1D34DBE000A6C3B5 /* AlarmModel.m in Sources */,
 				5E4954AD1D2FAA5B000B47D9 /* SetViewController.m in Sources */,
 				5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */,
 				5E4954BF1D2FE049000B47D9 /* BusStopModel.m in Sources */,
+				5EFBC4971D350DAF00A6C3B5 /* AlarmController.m in Sources */,
 				5E4954B91D2FAAD6000B47D9 /* SearchViewController.m in Sources */,
 				5E4954C51D2FE758000B47D9 /* BookMarkModel.m in Sources */,
 			);
@@ -285,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Bus Story/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -299,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Bus Story/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

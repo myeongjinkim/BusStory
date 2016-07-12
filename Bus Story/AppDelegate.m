@@ -10,6 +10,7 @@
 #import "BusStopModel.h"
 #import "BusModel.h"
 #import "BookMarkModel.h"
+#import "AlarmModel.h"
 @interface AppDelegate ()
 
 @end
@@ -28,7 +29,32 @@
     self.modelBookMark = [[BookMarkModel alloc] init];
     self.modelBookMark.selectedBookMark = -1;
     
+    self.modelAlarm = [[AlarmModel alloc] init];
     
+    NSNumber* timeTextField;
+    
+    timeTextField=[NSNumber numberWithInt:3];;
+    
+    UILocalNotification *localNofication = [[UILocalNotification alloc] init];
+    
+    if (localNofication == nil)
+    {
+        return YES;
+    }
+    NSDate *pushDate = [[NSDate date] dateByAddingTimeInterval:[timeTextField intValue]];
+    
+    localNofication.fireDate = pushDate;
+    localNofication.timeZone = [NSTimeZone defaultTimeZone];
+    localNofication.alertBody = @"Local Push Notification!";
+    localNofication.alertAction = @"View";
+    localNofication.soundName = UILocalNotificationDefaultSoundName;
+    localNofication.applicationIconBadgeNumber = 1;
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject: @"오늘의 일정은 로컬푸시를 테스트하는 것 입니다" forKey:@"message"];
+    localNofication.userInfo = userInfo;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNofication];
+
     
     return YES;
 }
