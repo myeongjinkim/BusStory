@@ -32,42 +32,9 @@
     self.modelAlarm = [[AlarmModel alloc] init];
     
     
-    [self.window makeKeyAndVisible];
+    [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
-    //통지시간 정하기
-    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
-    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
-    [dateComps setYear:2011];
-    [dateComps setMonth:3];
-    [dateComps setDay:22];
-    [dateComps setHour:15];
-    [dateComps setMinute:30];
-    [dateComps setSecond:0];
-    NSDate *date = [calendar dateFromComponents:dateComps];
-    [dateComps release];
-    
-    UILocalNotification *localNotif = [[UILocalNotification alloc]init];
-    if (localNotif != nil)
-    {
-        //통지시간
-        localNotif.fireDate = date;
-        localNotif.timeZone = [NSTimeZone defaultTimeZone];
-        
-        //Payload
-        localNotif.alertBody = [NSString stringWithFormat:@"내부통지 %@",date];
-        localNotif.alertAction = @"상세보기";
-        localNotif.soundName = UILocalNotificationDefaultSoundName;
-        localNotif.applicationIconBadgeNumber = 1;
-        
-        //Custom Data
-        NSDictionary *infoDict = [NSDictionary dictionaryWithObject:@"mypage" forKey:@"page"];
-        localNotif.userInfo = infoDict;
-        
-        //Local Notification 등록
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
-        
-    }
-    [localNotif release];
+   
     
     return YES;
 }

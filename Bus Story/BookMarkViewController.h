@@ -11,7 +11,9 @@
 #import "AlarmModel.h"
 #import "AlarmController.h"
 
-@interface BookMarkViewController : UITableViewController
+@interface BookMarkViewController : UITableViewController{
+    UIAlertController* alert;
+}
 
 @property (nonatomic, strong) BookMarkModel *modelBookMark;
 @property (nonatomic, strong) AlarmModel *modelAlarm;
