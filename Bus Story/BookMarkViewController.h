@@ -13,10 +13,12 @@
 
 @interface BookMarkViewController : UITableViewController{
     UIAlertController* alert;
+    NSMutableArray *AlarmArray;
+    Boolean IsAlarm;
+    NSTimer *myTimerStart;
 }
 
 @property (nonatomic, strong) BookMarkModel *modelBookMark;
 @property (nonatomic, strong) AlarmModel *modelAlarm;
 @property (nonatomic, strong) AlarmController *alarmController;
-
 @end

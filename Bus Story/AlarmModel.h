@@ -10,6 +10,8 @@
 @interface AlarmModel : NSObject
 
 @property (nonatomic, strong) NSMutableArray *alarm;
+@property (nonatomic, assign) NSInteger selectedAlarm;
+@property (nonatomic, assign) NSString* selectedRemain;
 
 - (void)setAlarm:(NSString *)AlarmSet BusNum:(NSString *)BusNum GetInBusStopName:(NSString *)GetInBusStopName GetOutBusStopName:(NSString *)GetOutBusStopName RemainBusStop:(NSString *)RemainBusStop;
 @end

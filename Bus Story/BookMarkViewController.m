@@ -33,9 +33,9 @@ enum cellBusList{
     self.modelBookMark = [appDelegate modelBookMark];
     self.modelAlarm = [appDelegate modelAlarm];
     self.alarmController = [[AlarmController alloc] init];
-
+    AlarmArray = [@[] mutableCopy];
     [[self tableView] setRowHeight:100.0f];
-    
+    IsAlarm=false;
     UILocalNotification *localNotif = [[UILocalNotification alloc]init];
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
     
@@ -85,13 +85,16 @@ enum cellBusList{
         UILabel *labelFinishBusStop;
         UILabel *labelBusNum;
         UILabel *labelRemainBusStop;
-        UISwitch *AlarmSwitch;
+        //UISwitch *AlarmSwitch;
+        UIButton *AlarmButton;
+        
         
         labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
         labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
         labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
         labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
-        AlarmSwitch = (UISwitch*)[cell viewWithTag:ALARMSWITCH];
+      AlarmButton = (UIButton*)[cell viewWithTag:ALARMSWITCH];
+        
         
         [labelBusStopName setText:nil];
         [labelFinishBusStop setText:nil];
@@ -100,7 +103,7 @@ enum cellBusList{
         
         
         NSDictionary *dicInfo = self.modelBookMark.bookMark[indexPath.row];//search button -1, set tablerow +1
-        
+        self.modelAlarm.selectedAlarm=indexPath.row;
         
         NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstop"]];
         NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
@@ -108,74 +111,193 @@ enum cellBusList{
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
         
         
-        
         [labelBusStopName setText:BusStopName];
         [labelFinishBusStop setText: FinishBusStop];
         [labelBusNum setText: BusNum];
         [labelRemainBusStop setText: RemainBusStop];
-        [AlarmSwitch setOn:FALSE animated:YES];
-        AlarmSwitch.tag=indexPath.row;
-        [AlarmSwitch addTarget:self action:@selector(AlarmSwitchAnimate:) forControlEvents:UIControlEventValueChanged];
+        
+        
+        
+        
+        
+        [AlarmButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:AlarmButton];
+    
+        
+        
+        
+        AlarmButton.tag = indexPath.row-1;
+        AlarmButton.frame= CGRectMake(230, 25+(indexPath.row)*100, 50, 50);
+        UIImage * buttonImage = [UIImage imageNamed:@"AlarmOff.jpeg"];
+        
+        [AlarmButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        
+        
+        
+        [AlarmArray addObject:@{@"bool":@"false"}];
         
     }
     
     return cell;
 }
 
--(void)AlarmSwitchAnimate:(id)sender
+-(void)buttonClicked:(id)sender
 {
-    UISwitch *AlarmSwitch=sender;
-    if(AlarmSwitch.on){
+    UIButton *AlarmButton = sender;
+    
+    NSDictionary *dicInfo = AlarmArray[AlarmButton.tag];
+    NSString *Bool = dicInfo[@"bool"];
+    
+    NSLog(@"%@", Bool);
+    
+    
+    if([Bool isEqualToString:@"false" ] && IsAlarm==false)
+    {
+        UIImage *buttonImage = [UIImage imageNamed:@"AlarmOn.jpeg"];
+        [AlarmButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         
-        NSDictionary *dicInfo = self.modelBookMark.bookMark[0];
-        NSString *AlarmSet = dicInfo[@"alarmset"];
+        NSLog(@"눌림?");
+        NSMutableArray *fake;
+        fake = [AlarmArray mutableCopy];
+        AlarmArray = [@[] mutableCopy];
         
-        self.modelBookMark.selectedBookMark=AlarmSwitch.tag;
+        for(int num=0;self.modelAlarm.selectedAlarm>num;num++)
+        {
+            
+            if(num==AlarmButton.tag)
+            {
+                [AlarmArray addObject:@{ @"bool": @"true"}];
+            }
+            else{
+                NSDictionary *alarmInfo = fake[num];
+                NSString *Bool = alarmInfo[@"bool"];
+                [AlarmArray addObject:@{ @"bool": Bool}];
+            }
+        }
         
-        dicInfo = self.modelBookMark.bookMark[AlarmSwitch.tag];
-        NSString *BusNum = dicInfo[@"busnum"];
-        NSString *GetInBusStopName = dicInfo[@"getinbusstopname"];
-        NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
-        NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@" 출발"];
-
-        
-         [self.modelAlarm setAlarm:AlarmSet BusNum:BusNum GetInBusStopName:GetInBusStopName GetOutBusStopName:GetOutBusStopName RemainBusStop:RemainBusStop];
-       
-        
+        IsAlarm=true;
+        self.modelBookMark.selectedBookMark = AlarmButton.tag+1;
         [self alarmStart];
         
-        //[self.alarmController alarmStart:self.modelAlarm.alarm];
+    
+    }
+    else if([Bool isEqualToString:@"true" ] && IsAlarm==true){
+        UIImage *buttonImage = [UIImage imageNamed:@"AlarmOff.jpeg"];
+        [AlarmButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        NSLog(@"때짐?");
         
+        NSMutableArray *fake;
+        fake = [AlarmArray mutableCopy];
+        AlarmArray = [@[] mutableCopy];
+        
+        for(int num=0;self.modelAlarm.selectedAlarm>num;num++)
+        {
+            
+            if(num==AlarmButton.tag)
+            {
+                [AlarmArray addObject:@{ @"bool": @"false"}];
+            }
+            else{
+                NSDictionary *alarmInfo = fake[num];
+                NSString *Bool = alarmInfo[@"bool"];
+                [AlarmArray addObject:@{ @"bool": Bool}];
+            }
+        }
+        IsAlarm=false;
+        [self alarmClose];
         
     }
+    else if([Bool isEqualToString:@"false" ] && IsAlarm==true)
+    {
+        
+        NSString *msg = @"이미 다른버스 알림을 받고 계십니다.";
+        [self AlertAlarm:msg Message:nil];
+    }
+   
 }
+
 
 -(void)alarmStart{
     
+    NSDictionary *bookMarkInfo = self.modelBookMark.bookMark[0];
+    NSString *BAlarmSet = bookMarkInfo[@"alarmset"];
+    
+    bookMarkInfo = self.modelBookMark.bookMark[self.modelBookMark.selectedBookMark];
+    NSString *BBusNum = bookMarkInfo[@"busnum"];
+    NSString *BGetInBusStopName = bookMarkInfo[@"getinbusstopname"];
+    NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstop"];
+    NSString *BRemainBusStop = bookMarkInfo[@"remainbusstop"];
+    
+    
+    [self.modelAlarm setAlarm:BAlarmSet BusNum:BBusNum GetInBusStopName:BGetInBusStopName GetOutBusStopName:BGetOutBusStopName RemainBusStop:BRemainBusStop];
+    
     NSDictionary *dicInfo = self.modelAlarm.alarm[0];
     NSString *AlarmSet = dicInfo[@"alarmset"];
-    NSString *BusNum = [dicInfo[@"busnum"] stringByAppendingString:@" 알람"];
+    NSString *BusNum = dicInfo[@"busnum"];
     NSString *GetInBusStopName = [dicInfo[@"getinbusstopname"] stringByAppendingString:@" -> "];
     NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
     NSString *GetInOut = [GetInBusStopName stringByAppendingString:GetOutBusStopName];
     NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
-    
+    NSString *BusNumMsg = [BusNum stringByAppendingString:@" 알람"];
+    NSString *msg = [[BusNum stringByAppendingString:@"번 " ] stringByAppendingString:RemainBusStop];
     NSLog(@" %@, %@, %@, %@, %@", AlarmSet, BusNum, GetInBusStopName, GetOutBusStopName, RemainBusStop);
     
+    self.modelAlarm.selectedRemain=dicInfo[@"remainbusstop"];
+    
+    //alert
+    [self AlertAlarm:BusNumMsg Message:GetInOut];
     
     
+    //local notification start
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc]init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    localNotification.alertBody = msg;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.repeatInterval = NSCalendarUnitMinute;
+    
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    
+     myTimerStart = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(LocalNoti) userInfo:nil repeats:true];
+    
+}
+
+
+-(void)alarmFinish{
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    NSLog(@"삭제");
+}
+
+-(void)alarmClose{
+    NSDictionary *dicInfo = self.modelAlarm.alarm[0];
+    NSString *BusNum = dicInfo[@"busnum"];
+    NSString *msg =  @" 알람을 종료합니다.";
+    [self AlertAlarm:BusNum Message:msg];
+    
+    //local notification close
+    [self alarmFinish];
+    
+    [myTimerStart invalidate];
+    myTimerStart = nil;
+}
+
+-(void)AlertAlarm:(NSString *)Title Message:(NSString *)Message
+{
     //알림창
-    alert = [UIAlertController alertControllerWithTitle:BusNum message:GetInOut preferredStyle:UIAlertControllerStyleAlert];
+    alert = [UIAlertController alertControllerWithTitle:Title message:Message preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
     
     
     //알림창자동닫기
     [NSTimer scheduledTimerWithTimeInterval:1.3f target:self selector:@selector(clearAlert:) userInfo:nil repeats:false];
-    
-    
-    
-    [self startLocalNotification];
-    
 }
 
 -(void)clearAlert:(NSTimer*)timer{ // 알림자동닫기
@@ -183,40 +305,62 @@ enum cellBusList{
     [alert dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)startLocalNotification {
-    NSLog(@"startLocalNotification");
+
+-(void)LocalNoti
+{
+    NSDictionary *bookMarkInfo = self.modelBookMark.bookMark[0];
+    NSString *BAlarmSet = bookMarkInfo[@"alarmset"];
     
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    bookMarkInfo = self.modelBookMark.bookMark[self.modelBookMark.selectedBookMark];
+    NSString *BBusNum = bookMarkInfo[@"busnum"];
+    NSString *BGetInBusStopName = bookMarkInfo[@"getinbusstopname"];
+    NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstop"];
+    NSString *BRemainBusStop = bookMarkInfo[@"remainbusstop"];
     
-    // 알람 발생 시각 설정. 5초후로 설정. NSDate 타입.
-    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
     
-    // timeZone 설정.
-    notification.timeZone = [NSTimeZone systemTimeZone];
+    [self.modelAlarm setAlarm:BAlarmSet BusNum:BBusNum GetInBusStopName:BGetInBusStopName GetOutBusStopName:BGetOutBusStopName RemainBusStop:BRemainBusStop];
     
-    // 알림 메시지 설정
-    notification.alertBody = @"Just Do It";
+    NSDictionary *dicInfo = self.modelAlarm.alarm[0];
+    NSString *AlarmSet = dicInfo[@"alarmset"];
+    NSString *BusNum = dicInfo[@"busnum"];
+    //NSString *GetInBusStopName = [dicInfo[@"getinbusstopname"] stringByAppendingString:@" -> "];
+    //NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
+    //NSString *GetInOut = [GetInBusStopName stringByAppendingString:GetOutBusStopName];
+    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
+    NSString *Remain = dicInfo[@"remainbusstop"];
+    //NSString *BusNumMsg = [BusNum stringByAppendingString:@" 알람"];
+    NSString *msg = [[BusNum stringByAppendingString:@"번 " ] stringByAppendingString:RemainBusStop];
     
-    // 알림 액션 설정
-    notification.alertAction = @"GOGO";
+
+    if([self.modelAlarm.selectedRemain isEqualToString: Remain]==false)
+    {
+        [self alarmFinish];
     
-    // 아이콘 뱃지 넘버 설정. 임의로 1 입력
-    notification.applicationIconBadgeNumber = 1;
     
-    // 알림 사운드 설정. 자체 제작 사운드도 가능. (if nil = no sound)
-    notification.soundName = UILocalNotificationDefaultSoundName;
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
     
-    // 임의의 사용자 정보 설정. 알림 화면엔 나타나지 않음
-    notification.userInfo = [NSDictionary dictionaryWithObject:@"My User Info" forKey:@"User Info"];
     
-    // UIApplication을 이용하여 알림을 등록.
+        UILocalNotification* localNotification = [[UILocalNotification alloc]init];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+        NSLog(@"%@",msg);
+        localNotification.alertBody = msg;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.repeatInterval = NSCalendarUnitMinute;
+    
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+        NSLog(@"생성");
+        
+        self.modelAlarm.selectedRemain=dicInfo[@"remainbusstop"];
+    }
+    
 
     
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
 }
-
-
-
 
 
 /*

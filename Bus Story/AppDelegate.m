@@ -30,11 +30,8 @@
     self.modelBookMark.selectedBookMark = -1;
     
     self.modelAlarm = [[AlarmModel alloc] init];
-    
-    
-    [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    
-   
+    self.modelAlarm.selectedAlarm= -1;
+    self.modelAlarm.selectedRemain=@"";
     
     return YES;
 }
@@ -48,6 +45,12 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    [notification setAlertBody:@"알람이오"];
+    [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    [notification setTimeZone:[NSTimeZone defaultTimeZone]];
+    [application setScheduledLocalNotifications:[NSArray arrayWithObjects:notification,nil]];
+
     
 }
 
@@ -62,5 +65,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
 
 @end

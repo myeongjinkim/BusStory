@@ -21,6 +21,9 @@
 		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
 		5EFBC48E1D34DBE000A6C3B5 /* AlarmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBC48D1D34DBE000A6C3B5 /* AlarmModel.m */; };
 		5EFBC4971D350DAF00A6C3B5 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBC4961D350DAF00A6C3B5 /* AlarmController.m */; };
+		5EFBC4A31D365E3A00A6C3B5 /* AlarmOff.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBC4A11D365E3A00A6C3B5 /* AlarmOff.jpeg */; };
+		5EFBC4A41D365E3A00A6C3B5 /* AlarmOn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBC4A21D365E3A00A6C3B5 /* AlarmOn.jpeg */; };
+		5EFBC4C91D36881F00A6C3B5 /* LaunchScreen.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBC4C81D36881F00A6C3B5 /* LaunchScreen.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		5EFBC48D1D34DBE000A6C3B5 /* AlarmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmModel.m; sourceTree = "<group>"; };
 		5EFBC4951D350DAF00A6C3B5 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
 		5EFBC4961D350DAF00A6C3B5 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
+		5EFBC4A11D365E3A00A6C3B5 /* AlarmOff.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AlarmOff.jpeg; sourceTree = "<group>"; };
+		5EFBC4A21D365E3A00A6C3B5 /* AlarmOn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AlarmOn.jpeg; sourceTree = "<group>"; };
+		5EFBC4C81D36881F00A6C3B5 /* LaunchScreen.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchScreen.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,9 @@
 		5EFB2AD41D28FFC000CA0ECB /* Bus Story */ = {
 			isa = PBXGroup;
 			children = (
+				5EFBC4A11D365E3A00A6C3B5 /* AlarmOff.jpeg */,
+				5EFBC4A21D365E3A00A6C3B5 /* AlarmOn.jpeg */,
+				5EFBC4C81D36881F00A6C3B5 /* LaunchScreen.jpeg */,
 				5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */,
 				5EFB2AD81D28FFC000CA0ECB /* AppDelegate.h */,
 				5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */,
@@ -152,7 +161,6 @@
 				TargetAttributes = {
 					5EFB2AD11D28FFC000CA0ECB = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 756397BG7G;
 					};
 				};
 			};
@@ -180,6 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E4954A71D2FA7BC000B47D9 /* LaunchScreen.storyboard in Resources */,
+				5EFBC4A31D365E3A00A6C3B5 /* AlarmOff.jpeg in Resources */,
+				5EFBC4A41D365E3A00A6C3B5 /* AlarmOn.jpeg in Resources */,
+				5EFBC4C91D36881F00A6C3B5 /* LaunchScreen.jpeg in Resources */,
 				5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -146,6 +146,8 @@ enum cellBusList{
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.modelBusStop.selectedIndex = indexPath.row;
+    
+    NSDictionary *dicInfo = self.modelBusStop.busList[indexPath.row];
 }
 /*
 // Override to support conditional editing of the table view.
