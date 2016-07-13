@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SearchViewController.h"
 
 @interface BusStopModel : NSObject
 
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) NSMutableArray *busList;
+
+@property (nonatomic, strong)SearchViewController *searchView;
 
 @end

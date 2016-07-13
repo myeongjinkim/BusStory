@@ -54,19 +54,19 @@ enum cellBusList{
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
+    //#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
+    //#warning Incomplete implementation, return the number of rows
     return self.modelBusStop.busList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
- 
+    
     
     
     UITableViewCell *cell;
@@ -78,7 +78,7 @@ enum cellBusList{
         
         UILabel *labelBusStopNum = (UILabel *)[cell viewWithTag:BUSSTOPNUM];
         UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:BUSSTOPFINISH];
-
+        
         
         [labelBusStopNum setText:nil];
         [labelFinishBusStop setText:nil];
@@ -88,7 +88,7 @@ enum cellBusList{
         
         
         NSString *BusStopNum = dicInfo[@"busstopnum"];
-        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
         
         
         
@@ -106,28 +106,30 @@ enum cellBusList{
         UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
         UISwitch *BookMarkSwitch = (UISwitch*)[cell viewWithTag:BOOKMARKSWITCH];
         UISwitch *AlarmSwitch = (UISwitch*)[cell viewWithTag:ALARMSWITCH];
-    
+        
         
         [labelBusNum setText:nil];
         [labelFinishBusStop setText:nil];
         [labelRemainBusStop setText:nil];
         [BookMarkSwitch setOn:FALSE];
         [AlarmSwitch setOn:FALSE];
-    
+        
         NSDictionary *dicInfo = self.modelBusStop.busList[indexPath.row];
-    
-    
+        
+        
         NSString *BusNum = dicInfo[@"busnum"];
-        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
-        NSString *BookMark = dicInfo[@"bookmark"];
-
-    
+        
+        
+        NSString *BookMark = @"0"; //이부분에서 북마크여부 받을것. 이부분수정
+        
+        
         [labelBusNum setText: BusNum];
         [labelFinishBusStop setText: FinishBusStop];
         [labelRemainBusStop setText: RemainBusStop];
-                              
-        if([BookMark isEqualToString:@"0"])
+        
+        if([BookMark isEqualToString:@"0"])//북마크여부 판단
         {
             [BookMarkSwitch setOn:FALSE];
         }
@@ -144,49 +146,55 @@ enum cellBusList{
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.modelBusStop.selectedIndex = indexPath.row;
+    
+    //
+    NSDictionary *dicInfo = self.modelBusStop.busList[self.modelBusStop.selectedIndex];
+    NSString *BusNum = dicInfo[@"busnum"];
+
+    
 }
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

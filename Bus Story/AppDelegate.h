@@ -11,34 +11,29 @@
 @class BusStopModel;
 @class BusModel;
 @class BookMarkModel;
+@class AlarmModel;
+
 @class StationData;
 @class SearchViewController;
+@class BusData;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    NSString *databaseName;
-    NSString *databasePath;
-    NSMutableArray *busDB;
-    NSMutableArray *bus_stationDB;
-    NSMutableArray *staion_timeDB;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) BusStopModel *modelBusStop;
 @property (nonatomic, strong) BusModel *modelBus;
 @property (nonatomic, strong) BookMarkModel *modelBookMark;
 @property (strong, nonatomic) IBOutlet UIWindow *window;
+@property (nonatomic, strong) AlarmModel *modelAlarm;
 
 @property (nonatomic, strong) SearchViewController *searchView;
-@property (nonatomic, strong) StationData *stationData;
 
 //DB path
 @property (strong, nonatomic) NSString *databaseName;
 @property (strong, nonatomic) NSString *databasePath;
 @property (strong, nonatomic) NSMutableArray *busDB;
-@property (strong, nonatomic) NSMutableArray *bus_stationDB;
-@property (strong, nonatomic) NSMutableArray *station_timeDB;
 
 -(void)checkAndCreateDatabase;
--(NSMutableArray *)readDataFromDB: (char *)sql :(NSString *)tableName;
+-(NSMutableArray *)readDataFromDB:(char*)sql;
 
 @end
 

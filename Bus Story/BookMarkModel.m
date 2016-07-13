@@ -15,14 +15,17 @@
         _bookMark = [@[] mutableCopy];
         
         [_bookMark addObject:@{@"alarmset":@"2"}];
-        [_bookMark addObject:@{@"busStopnum":@"000-1",@"busstopname":@"명지대역1",@"arrivebusstop":@"강남역1전",@"finishbusstop":@"강남역",@"busnum":@"5000", @"remainbusstop":@"1"}];
-        //버스번호, 정류소번호, 정류소이름, 정류소순서, 첫차시간, 막차시간
         
-        [_bookMark addObject:@{@"busStopnum":@"000-2",@"busstopname":@"명지대역2",@"arrivebusstop":@"강남역2전",@"finishbusstop":@"강남역",@"busnum":@"5000", @"remainbusstop":@"1"}];
+        // 몇번쨰 전부터 알림인지 설정
+        [_bookMark addObject:@{@"getinbusstopnum":@"000-1",@"getinbusstopname":@"명지대역1",@"getoutbusstopnum":@"000-10",@"getoutbusstop":@"강남역1",@"busstoplocation":@"강남역",@"busnum":@"5001", @"remainbusstop":@"1"}];
+        //탑승정류소번호, 탑승정류소이름, 하차정류소번호 하차정류소이름, 정류소방면, 버스번호, 몇번째전
+        //탑승정류소이름, 하차정류소이름, 정류소방면, 버스번호, 몇번쨰전 만 사용.
         
-        [_bookMark addObject:@{@"busStopnum":@"000-3",@"busstopname":@"명지대역3",@"arrivebusstop":@"강남역3전",@"finishbusstop":@"강남역",@"busnum":@"5000", @"remainbusstop":@"1"}];
+        [_bookMark addObject:@{@"getinbusstopnum":@"000-1",@"getinbusstopname":@"명지대역1",@"getoutbusstopnum":@"000-10",@"getoutbusstop":@"강남역1",@"busstoplocation":@"강남역",@"busnum":@"5002", @"remainbusstop":@"1"}];
         
-        [_bookMark addObject:@{@"busStopnum":@"000-4",@"busstopname":@"명지대역4",@"arrivebusstop":@"강남역4전",@"finishbusstop":@"강남역",@"busnum":@"5000", @"remainbusstop":@"1"}];
+        [_bookMark addObject:@{@"getinbusstopnum":@"000-1",@"getinbusstopname":@"명지대역1",@"getoutbusstopnum":@"000-10",@"getoutbusstop":@"강남역1",@"busstoplocation":@"강남역",@"busnum":@"5003", @"remainbusstop":@"1"}];
+        
+        [_bookMark addObject:@{@"getinbusstopnum":@"000-1",@"getinbusstopname":@"명지대역1",@"getoutbusstopnum":@"000-10",@"getoutbusstop":@"강남역1",@"busstoplocation":@"강남역",@"busnum":@"5004", @"remainbusstop":@"1"}];
        
     }
     return _bookMark;

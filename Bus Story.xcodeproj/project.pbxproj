@@ -19,9 +19,11 @@
 		5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD61D28FFC000CA0ECB /* main.m */; };
 		5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */; };
 		5EFB2AED1D29005000CA0ECB /* BusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */; };
+		911F6F311D35813E004858EE /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F6F301D35813E004858EE /* AlarmViewController.m */; };
+		911F6F341D35821F004858EE /* AlarmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F6F331D35821F004858EE /* AlarmModel.m */; };
+		911F6F371D358232004858EE /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F6F361D358232004858EE /* AlarmController.m */; };
+		911F6F3A1D35F940004858EE /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F6F391D35F940004858EE /* Data.m */; };
 		91B90D881D32ECCC005108B0 /* bus.db in Resources */ = {isa = PBXBuildFile; fileRef = 91B90D871D32ECCC005108B0 /* bus.db */; };
-		91B90D8B1D32ED43005108B0 /* BusData.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B90D8A1D32ED43005108B0 /* BusData.m */; };
-		91B90D8E1D32ED4E005108B0 /* StationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B90D8D1D32ED4E005108B0 /* StationData.m */; };
 		91B90D911D32EDF4005108B0 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B90D8F1D32EDF4005108B0 /* libsqlite3.0.tbd */; };
 		91B90D921D32EDF4005108B0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B90D901D32EDF4005108B0 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
@@ -50,11 +52,15 @@
 		5EFB2AD91D28FFC000CA0ECB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5EFB2AE61D28FFC000CA0ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EFB2AEC1D29005000CA0ECB /* BusStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusStoryboard.storyboard; sourceTree = "<group>"; };
+		911F6F2F1D35813E004858EE /* AlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmViewController.h; path = "../../../Downloads/BusStory-56a532e8063b4de824ad3461f304b85cd7f5fc3f/AlarmViewController.h"; sourceTree = "<group>"; };
+		911F6F301D35813E004858EE /* AlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmViewController.m; path = "../../../Downloads/BusStory-56a532e8063b4de824ad3461f304b85cd7f5fc3f/AlarmViewController.m"; sourceTree = "<group>"; };
+		911F6F321D35821F004858EE /* AlarmModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmModel.h; path = "../../../Downloads/BusStory-56a532e8063b4de824ad3461f304b85cd7f5fc3f/Bus Story/AlarmModel.h"; sourceTree = "<group>"; };
+		911F6F331D35821F004858EE /* AlarmModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmModel.m; path = "../../../Downloads/BusStory-56a532e8063b4de824ad3461f304b85cd7f5fc3f/Bus Story/AlarmModel.m"; sourceTree = "<group>"; };
+		911F6F351D358232004858EE /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlarmController.h; path = "../../../Downloads/BusStory-56a532e8063b4de824ad3461f304b85cd7f5fc3f/Bus Story/AlarmController.h"; sourceTree = "<group>"; };
+		911F6F361D358232004858EE /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlarmController.m; path = "../../../Downloads/BusStory-56a532e8063b4de824ad3461f304b85cd7f5fc3f/Bus Story/AlarmController.m"; sourceTree = "<group>"; };
+		911F6F381D35F940004858EE /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		911F6F391D35F940004858EE /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
 		91B90D871D32ECCC005108B0 /* bus.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = bus.db; path = ../../../bus.db; sourceTree = "<group>"; };
-		91B90D891D32ED43005108B0 /* BusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusData.h; sourceTree = "<group>"; };
-		91B90D8A1D32ED43005108B0 /* BusData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusData.m; sourceTree = "<group>"; };
-		91B90D8C1D32ED4E005108B0 /* StationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationData.h; sourceTree = "<group>"; };
-		91B90D8D1D32ED4E005108B0 /* StationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationData.m; sourceTree = "<group>"; };
 		91B90D8F1D32EDF4005108B0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		91B90D901D32EDF4005108B0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -124,6 +130,10 @@
 		91B90D831D32EC73005108B0 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				911F6F351D358232004858EE /* AlarmController.h */,
+				911F6F361D358232004858EE /* AlarmController.m */,
+				911F6F2F1D35813E004858EE /* AlarmViewController.h */,
+				911F6F301D35813E004858EE /* AlarmViewController.m */,
 				5E4954B11D2FAA91000B47D9 /* BookMarkViewController.h */,
 				5E4954B21D2FAA91000B47D9 /* BookMarkViewController.m */,
 				5E4954AB1D2FAA5B000B47D9 /* SetViewController.h */,
@@ -141,16 +151,16 @@
 		91B90D841D32EC80005108B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				911F6F321D35821F004858EE /* AlarmModel.h */,
+				911F6F331D35821F004858EE /* AlarmModel.m */,
 				5E4954BD1D2FE049000B47D9 /* BusStopModel.h */,
 				5E4954BE1D2FE049000B47D9 /* BusStopModel.m */,
 				5E4954C01D2FE22B000B47D9 /* BusModel.h */,
 				5E4954C11D2FE22B000B47D9 /* BusModel.m */,
 				5E4954C31D2FE758000B47D9 /* BookMarkModel.h */,
 				5E4954C41D2FE758000B47D9 /* BookMarkModel.m */,
-				91B90D891D32ED43005108B0 /* BusData.h */,
-				91B90D8A1D32ED43005108B0 /* BusData.m */,
-				91B90D8C1D32ED4E005108B0 /* StationData.h */,
-				91B90D8D1D32ED4E005108B0 /* StationData.m */,
+				911F6F381D35F940004858EE /* Data.h */,
+				911F6F391D35F940004858EE /* Data.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -198,6 +208,9 @@
 		5EFB2ACA1D28FFC000CA0ECB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					BUSSEARCH,
+				);
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Hyun Gyu Kim";
 				TargetAttributes = {
@@ -243,14 +256,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B90D8B1D32ED43005108B0 /* BusData.m in Sources */,
+				911F6F341D35821F004858EE /* AlarmModel.m in Sources */,
 				5E4954B31D2FAA91000B47D9 /* BookMarkViewController.m in Sources */,
 				5E4954C21D2FE22B000B47D9 /* BusModel.m in Sources */,
 				5E4954B61D2FAABE000B47D9 /* BusViewController.m in Sources */,
-				91B90D8E1D32ED4E005108B0 /* StationData.m in Sources */,
+				911F6F311D35813E004858EE /* AlarmViewController.m in Sources */,
+				911F6F371D358232004858EE /* AlarmController.m in Sources */,
 				5EFB2ADA1D28FFC000CA0ECB /* AppDelegate.m in Sources */,
 				5E4954B01D2FAA73000B47D9 /* BusStopViewController.m in Sources */,
 				5E4954AD1D2FAA5B000B47D9 /* SetViewController.m in Sources */,
+				911F6F3A1D35F940004858EE /* Data.m in Sources */,
 				5EFB2AD71D28FFC000CA0ECB /* main.m in Sources */,
 				5E4954BF1D2FE049000B47D9 /* BusStopModel.m in Sources */,
 				5E4954B91D2FAAD6000B47D9 /* SearchViewController.m in Sources */,

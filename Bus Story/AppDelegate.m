@@ -10,9 +10,9 @@
 #import "BusStopModel.h"
 #import "BusModel.h"
 #import "BookMarkModel.h"
+#import "AlarmModel.h"
 
-#import "StationData.h"
-#import "BusData.h"
+#include "Data.h"
 #import "SearchViewController.h"
 
 #import <sqlite3.h>
@@ -21,8 +21,6 @@
 @end
 
 @implementation AppDelegate
-
-@synthesize databaseName, databasePath, busDB, bus_stationDB, station_timeDB;
 
 -(void)checkAndCreateDatabase
 {
@@ -38,9 +36,9 @@
     [fileManager copyItemAtPath:databasePathFromApp toPath:self.databasePath error:nil];
 }
 
--(NSMutableArray *)readDataFromDB: (char *)sql :(NSString *)tableName
+-(NSMutableArray *)readDataFromDB:(char*) sql
 {
-    [self.busDB removeAllObjects];
+//    [self.bus_stationDB removeAllObjects];
     
     sqlite3 *database;
     
@@ -60,38 +58,29 @@
                 
                 //                NSLog(@"-------STEP IN");
                 
-                if ([tableName  isEqual: @"bus_stationInfo"]){
-                    char *bNum = (char *)sqlite3_column_text(compiledStatement, 0);
-                    char *sName = (char *) sqlite3_column_text(compiledStatement, 1);
-                    char *sNum = (char *) sqlite3_column_text (compiledStatement, 2);
-                    NSString *busNum = [NSString stringWithUTF8String:bNum];
-//                                    NSLog(busNum);
-                    NSString *stationName = [NSString stringWithUTF8String:sName];
-//                                    NSLog(stationName);
-                    NSString *stationNum = [NSString stringWithUTF8String: sNum];
-//                                    NSLog(stationNum);
+                char *bNum = (char *)sqlite3_column_text(compiledStatement, 0);
+                char *sName = (char *) sqlite3_column_text(compiledStatement, 1);
+                char *sNum = (char *) sqlite3_column_text (compiledStatement, 2);
+                char *dir = (char *) sqlite3_column_text (compiledStatement, 3);
+                char *stS = (char *) sqlite3_column_text (compiledStatement, 4);
+                char *enS = (char *) sqlite3_column_text (compiledStatement, 5);
+                char *stT = (char *) sqlite3_column_text (compiledStatement, 6);
+                char *enT = (char *) sqlite3_column_text (compiledStatement, 7);
+
+                NSString *busNum = [NSString stringWithUTF8String:bNum];
+                NSString *stationName = [NSString stringWithUTF8String:sName];
+                NSString *stationNum = [NSString stringWithUTF8String: sNum];
+                NSString *direction = [NSString stringWithUTF8String: dir];
+                NSString *startStation = [NSString stringWithUTF8String: stS];
+                NSString *endStation = [NSString stringWithUTF8String: enS];
+                NSString *startTime = [NSString stringWithUTF8String: stT];
+                NSString *endTime = [NSString stringWithUTF8String: enT];
+                
+                Data *data = [[Data alloc] initWithData:busNum busstopname:stationName busstopnum:stationNum busstoplocation:direction startbusstop:startStation endbusstop:endStation firsttime:startTime lasttime:endTime];
+//                NSLog(@"%@, %@, %@, %@ %@ %@ %@ %@",data.busNum, stationName, stationNum, direction,startStation,endStation,startTime,endTime);
+
+                [self.busDB addObject:data];
                     
-                    StationData *stationData = [[StationData alloc] initWithData:busNum theStationName:stationName theStationNum:stationNum];
-                    [self.busDB addObject:stationData];
-                }
-                else {
-                    char *bN = (char *)sqlite3_column_text(compiledStatement, 0);
-                    char *sS = (char *) sqlite3_column_text(compiledStatement, 1);
-                    char *eS = (char *) sqlite3_column_text (compiledStatement, 2);
-                    char *sT = (char *) sqlite3_column_text (compiledStatement, 3);
-                    char *eT = (char *) sqlite3_column_text (compiledStatement, 4);
-                    
-                    NSString *busNum = [NSString stringWithUTF8String:bN];
-                    NSString *startStation = [NSString stringWithUTF8String:sS];
-                    NSString *endStation = [NSString stringWithUTF8String: eS];
-                    NSString *startTime = [NSString stringWithUTF8String: sT];
-                    NSString *lastTime = [NSString stringWithUTF8String: eT];
-                    
-//                    NSLog(busNum, startStation, endStation, startTime, lastTime);
-                    
-                    BusData *busData = [[BusData alloc]initWithData:busNum theStartStn:startStation theEndStn:endStation theStartTm:startTime theLastTm:lastTime];
-                    [self.busDB addObject:busData];
-                }
             }
         }
         sqlite3_finalize(compiledStatement);
@@ -100,10 +89,10 @@
     sqlite3_close(database);
     //    NSLog(@"-----------DB-CLOSED");
     
-    return busDB;
+    return _busDB;
 }
 
-                        
+
 #pragma mark - appStarting method
                         
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -118,12 +107,10 @@
     self.modelBookMark.selectedBookMark = -1;
     
     self.searchView = [[SearchViewController alloc] init];
-    self.stationData = [[StationData alloc] init];
-    
-    self.bus_stationDB = [[NSMutableArray alloc] init];
-    self.station_timeDB = [[NSMutableArray alloc] init];
+
+    self.busDB = [[NSMutableArray alloc] init];
     self.databaseName = @"bus.db";
-    
+
     NSArray * documentPaths =
     NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [documentPaths objectAtIndex:0];
@@ -133,14 +120,12 @@
     
     [self checkAndCreateDatabase];
     
+    [self readDataFromDB:"select * from bus_stationInfo"];
     
-    bus_stationDB = [self readDataFromDB:"select * from bus_stationInfo" :@"bus_stationInfo"];
-    station_timeDB = [self readDataFromDB:"select * from station_timeInfo" :@"station_timeInfo"];
-    
-    //
+    self.modelAlarm = [[AlarmModel alloc] init];
     
     
-
+    [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     
     return YES;
 }
