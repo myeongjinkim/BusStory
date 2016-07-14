@@ -37,6 +37,9 @@ enum cellBusList{
     [[self tableView] setRowHeight:100.0f];
     IsAlarm=false;
     boolAlarm = false;
+
+    bookMarkNum = self.modelBookMark.bookMark.count;
+    [self loadPlist:[self numPlist]];
     
     UILocalNotification *localNotif = [[UILocalNotification alloc]init];
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
@@ -105,7 +108,7 @@ enum cellBusList{
         NSDictionary *dicInfo = self.modelBookMark.bookMark[indexPath.row];//search button -1, set tablerow +1
         self.modelAlarm.selectedAlarm=indexPath.row;
         
-        NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstop"]];
+        NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstopname"]];
         NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
         NSString *BusNum = dicInfo[@"busnum"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
@@ -140,6 +143,96 @@ enum cellBusList{
     
     return cell;
 }
+
+
+
+- (int) numPlist{
+    int n;
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentRootPath =[documentPaths objectAtIndex:0];
+    
+    NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/string.plist"];
+    NSDictionary *stringDic= [[NSDictionary alloc] initWithContentsOfFile:stringFilePath];
+    
+    
+    
+    if(stringDic){
+        
+        
+        n = [[stringDic objectForKey:@"num"] intValue];
+        
+    }
+    else{
+        NSLog(@"시래");
+    }
+    return n;
+}
+
+
+
+
+
+- (void) loadPlist:(int) num{
+    NSLog(@"%d",num);
+    self.modelBookMark.bookMark = [@[] mutableCopy];
+    for(lineNum=0;lineNum<num ;lineNum++)
+    {
+        NSString *a = [NSString stringWithFormat:@"%d", lineNum];
+        NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentRootPath =[documentPaths objectAtIndex:0];
+        
+        NSString *stringFilePath = [documentRootPath stringByAppendingFormat:@"/string%@.plist",a];
+        NSDictionary *stringDic= [[NSDictionary alloc] initWithContentsOfFile:stringFilePath];
+        
+        
+        if(stringDic){
+            NSString *AlarmSet = [stringDic objectForKey:@"alarmset"];
+            NSString *GetInBusStopNum = [stringDic objectForKey:@"getinbusstopnum"];
+            NSString *GetInBusStopName = [stringDic objectForKey:@"getinbusstopname"];
+            NSString *GetOutBusStopNum = [stringDic objectForKey:@"getoutbusstopnum"];
+            NSString *GetOutBusStopName = [stringDic objectForKey:@"getoutbusstopname"];
+            NSString *BusStopLocation = [stringDic objectForKey:@"busstoplocation"];
+            NSString *BusNum = [stringDic objectForKey:@"busnum"];
+            NSString *RemainBusStop = [stringDic objectForKey:@"remainbusstop"];
+            NSString *RemainBusStop2 = [stringDic objectForKey:@"remainbusstop2"];
+            NSString *Accelerometer = [stringDic objectForKey:@"accelerometer"];
+            NSString *BusLocation = [stringDic objectForKey:@"buslocation"];
+            if(lineNum==0)
+            {
+                [self.modelBookMark.bookMark addObject:@{@"alarmset":AlarmSet}];
+                
+            }
+            else
+            {
+                
+                [self.modelBookMark.bookMark addObject:@{@"getinbusstopnum":GetInBusStopNum,
+                                                         @"getinbusstopname":GetInBusStopName,
+                                                         @"getoutbusstopnum":GetOutBusStopNum,
+                                                         @"getoutbusstopname":GetOutBusStopName,
+                                                         @"busstoplocation":BusStopLocation,
+                                                         @"busnum": BusNum,
+                                                         @"remainbusstop":RemainBusStop,
+                                                         @"remainbusstop2":RemainBusStop2,
+                                                         @"accelerometer":Accelerometer,
+                                                         @"buslocation":BusLocation}];
+            }
+        }
+        else{
+            NSLog(@"시래");
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 -(void)buttonClicked:(id)sender
 {
@@ -225,7 +318,7 @@ enum cellBusList{
     bookMarkInfo = self.modelBookMark.bookMark[self.modelBookMark.selectedBookMark];
     NSString *BBusNum = bookMarkInfo[@"busnum"];
     NSString *BGetInBusStopName = bookMarkInfo[@"getinbusstopname"];
-    NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstop"];
+    NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstopname"];
     NSString *BRemainBusStop = bookMarkInfo[@"remainbusstop"];
     boolalart=true;
     
@@ -235,7 +328,7 @@ enum cellBusList{
     NSString *AlarmSet = dicInfo[@"alarmset"];
     NSString *BusNum = dicInfo[@"busnum"];
     NSString *GetInBusStopName = [dicInfo[@"getinbusstopname"] stringByAppendingString:@" -> "];
-    NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
+    NSString *GetOutBusStopName = dicInfo[@"getoutbusstopname"];
     NSString *GetInOut = [GetInBusStopName stringByAppendingString:GetOutBusStopName];
     NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
     NSString *BusNumMsg = [BusNum stringByAppendingString:@" 알람"];
@@ -315,7 +408,7 @@ enum cellBusList{
     bookMarkInfo = self.modelBookMark.bookMark[self.modelBookMark.selectedBookMark];
     NSString *BBusNum = bookMarkInfo[@"busnum"];
     NSString *BGetInBusStopName = bookMarkInfo[@"getinbusstopname"];
-    NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstop"];
+    NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstopname"];
     NSString *BRemainBusStop = bookMarkInfo[@"remainbusstop"];
     NSString *BRemainBusStop2 = bookMarkInfo[@"remainbusstop2"];
      NSString *Accelerometer = bookMarkInfo[@"accelerometer"];

@@ -13,7 +13,7 @@
     
     _alarm = [@[] mutableCopy];
     
-    [_alarm addObject:@{@"alarmset":AlarmSet,@"busnum":BusNum,@"getinbusstopname":GetInBusStopName,@"getoutbusstop":GetOutBusStopName, @"remainbusstop":RemainBusStop}];
+    [_alarm addObject:@{@"alarmset":AlarmSet,@"busnum":BusNum,@"getinbusstopname":GetInBusStopName,@"getoutbusstopname":GetOutBusStopName, @"remainbusstop":RemainBusStop}];
     
 }
 

@@ -11,8 +11,7 @@
 enum cellDeleteBusList{
     BUSSTOPNAME=1,
     FINISHBUSSTOP,
-    BUSNUM,
-    REMAINBUSSTOP
+    BUSNUM
 };
 enum cellSet{
     SETBUSSTOP=10,
@@ -87,30 +86,26 @@ enum cellSet{
         UILabel *labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
         UILabel *labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
         UILabel *labelBusNum = (UILabel *)[cell viewWithTag:BUSNUM];
-        UILabel *labelRemainBusStop = (UILabel *)[cell viewWithTag:REMAINBUSSTOP];
         
         
         [labelBusStopName setText:nil];
         [labelFinishBusStop setText:nil];
-        [labelRemainBusStop setText:nil];
         [labelBusNum setText:nil];
         
         
         NSDictionary *dicInfo = self.modelBookMark.bookMark[indexPath.row]; //set button -1, set tablerow +1
         
         
-        NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstop"]];
+        NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstopname"]];
         NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
         
         NSString *BusNum = dicInfo[@"busnum"];
-        NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
         
         
         
         [labelBusStopName setText:BusStopName];
         [labelFinishBusStop setText: FinishBusStop];
         [labelBusNum setText: BusNum];
-        [labelRemainBusStop setText: RemainBusStop];
         
         
     }

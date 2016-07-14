@@ -11,7 +11,13 @@
 @class BusModel;
 @class BookMarkModel;
 @interface BusViewController : UITableViewController
-
+{
+    int lineNum;
+    bool selected;
+    int bookMarkNum;
+    int numP;
+    
+}
 @property (nonatomic, strong) BusStopModel *modelBusStop;
 @property (nonatomic, strong) BusModel *modelBus;
 @property (nonatomic,strong) BookMarkModel *modelBookMark;

@@ -20,6 +20,9 @@
     Boolean boolalart;
     Boolean AlarmOn;
     UIButton *AlarmButton;
+    int lineNum;
+    int bookMarkNum;
+    
 }
 
 @property (nonatomic, strong) BookMarkModel *modelBookMark;
