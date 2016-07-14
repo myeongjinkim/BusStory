@@ -9,6 +9,8 @@
 #import "BusViewController.h"
 #import "BusStopModel.h" 
 #import "BusModel.h" 
+
+#import "BookMarkModel.h"
 @interface BusViewController ()
 
 @end
@@ -30,10 +32,15 @@ enum cellBusLine{
     self.modelBusStop = [appDelegate modelBusStop];
     self.modelBus = [appDelegate modelBus];
     
+    
+    self.modelBookMark = [appDelegate modelBookMark];//실제 값을 넣기전의 틀을 잡기 위해.
+    
     [[self tableView] setRowHeight:80.0f];
+    
     
     NSDictionary *dicInfo = self.modelBusStop.busList[self.modelBusStop.selectedIndex];
     self.title = dicInfo[@"busnum"];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -109,10 +116,16 @@ enum cellBusLine{
         [labelBusStopName setText:BusStopName];
         [labelBusStopNum setText:BusStopNum];
         [labelBusTime setText:BusTime];
+        
     }
     
     return cell;
 }
+
+
+
+
+
 
 
 /*

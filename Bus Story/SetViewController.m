@@ -99,8 +99,9 @@ enum cellSet{
         NSDictionary *dicInfo = self.modelBookMark.bookMark[indexPath.row]; //set button -1, set tablerow +1
         
         
-        NSString *BusStopName = [[dicInfo[@"busstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"arrivebusstop"]];
-        NSString *FinishBusStop = [dicInfo[@"finishbusstop"] stringByAppendingString:@"방면"];
+        NSString *BusStopName = [[dicInfo[@"getinbusstopname"]stringByAppendingString:@" -> " ]stringByAppendingString:dicInfo[@"getoutbusstop"]];
+        NSString *FinishBusStop = [dicInfo[@"busstoplocation"] stringByAppendingString:@"방면"];
+        
         NSString *BusNum = dicInfo[@"busnum"];
         NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
         

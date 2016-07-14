@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 @class BusStopModel;
 @class BusModel;
-
+@class BookMarkModel;
 @interface BusViewController : UITableViewController
 
 @property (nonatomic, strong) BusStopModel *modelBusStop;
 @property (nonatomic, strong) BusModel *modelBus;
+@property (nonatomic,strong) BookMarkModel *modelBookMark;
 
 @end

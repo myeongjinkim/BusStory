@@ -18,6 +18,7 @@
     NSTimer *myTimerStart;
     Boolean boolAlarm;
     Boolean boolalart;
+    Boolean AlarmOn;
     UIButton *AlarmButton;
 }
 

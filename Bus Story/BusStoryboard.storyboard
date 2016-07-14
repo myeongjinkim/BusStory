@@ -375,7 +375,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSet" rowHeight="100" id="A8a-zR-TUA">
-                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A8a-zR-TUA" id="ZTF-xM-CFQ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
@@ -398,7 +398,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellDeleteBookMark" rowHeight="100" id="ejt-fI-zip">
-                                <rect key="frame" x="0.0" y="128" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="192" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ejt-fI-zip" id="DHy-cW-0bZ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>

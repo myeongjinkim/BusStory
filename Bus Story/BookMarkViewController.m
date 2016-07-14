@@ -37,6 +37,7 @@ enum cellBusList{
     [[self tableView] setRowHeight:100.0f];
     IsAlarm=false;
     boolAlarm = false;
+    
     UILocalNotification *localNotif = [[UILocalNotification alloc]init];
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
     
@@ -87,7 +88,6 @@ enum cellBusList{
         UILabel *labelBusNum;
         UILabel *labelRemainBusStop;
         //UISwitch *AlarmSwitch;
-        UIButton *AlarmButton;
         
         labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
         labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
@@ -182,6 +182,7 @@ enum cellBusList{
     
     }
     else if([Bool isEqualToString:@"true" ] && IsAlarm==true){
+        
         UIImage *buttonImage = [UIImage imageNamed:@"AlarmOff.jpeg"];
         [AlarmButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
         NSLog(@"때짐?");
@@ -239,7 +240,7 @@ enum cellBusList{
     NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
     NSString *BusNumMsg = [BusNum stringByAppendingString:@" 알람"];
     NSString *msg = [[BusNum stringByAppendingString:@"번 " ] stringByAppendingString:RemainBusStop];
-    NSLog(@" %@, %@, %@, %@, %@", AlarmSet, BusNum, GetInBusStopName, GetOutBusStopName, RemainBusStop);
+    
     
     self.modelAlarm.selectedRemain=dicInfo[@"remainbusstop"];
     
@@ -272,7 +273,6 @@ enum cellBusList{
 -(void)alarmFinish{
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    NSLog(@"삭제");
 }
 
 -(void)alarmClose{
@@ -297,12 +297,13 @@ enum cellBusList{
     
     
     //알림창자동닫기
-    [NSTimer scheduledTimerWithTimeInterval:1.3f target:self selector:@selector(clearAlert:) userInfo:nil repeats:false];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(clearAlert:) userInfo:nil repeats:false];
 }
 
 -(void)clearAlert:(NSTimer*)timer{ // 알림자동닫기
     
     [alert dismissViewControllerAnimated:YES completion:nil];
+    alert=nil;
 }
 
 
@@ -339,11 +340,10 @@ enum cellBusList{
     
     if([BGetInBusStopName isEqualToString:BusLoation] && [Accelerometer isEqualToString:@"false"])
     {
-        //승차알림
+        //다시 승차알림
         NSLog(@"버스지나감");
         
         if(boolalart==true){
-            [alert dismissViewControllerAnimated:YES completion:nil];
             AlamMsg=@"버스를 놓치셨습니다. 다음 버스를 알람해 드립니다.";
             boolalart=false;
             
@@ -355,11 +355,12 @@ enum cellBusList{
     {
         //하차알림
         NSLog(@"버스탐.");
+        Boolean alarmMode = true;
+        if(boolalart==true&& alarmMode==true){
         
-        if(boolalart==true){
-        
-            AlamMsg =  @"승차하셨습니다. 하차 알람해 드립니다.";
+            AlamMsg =  @"승차하셨습니다. 하차 알람을 시작합니다.";
            boolalart=false;
+            alarmMode=false;
             
         }
         
@@ -367,20 +368,44 @@ enum cellBusList{
         
         int NAlarmSet = [AlarmSet intValue];
         int NRemainBusStop2 = [BRemainBusStop2 intValue];
-        NSLog(@"%@ %@",AlarmSet, BRemainBusStop2);
         if(NAlarmSet==NRemainBusStop2)
         {
             NSLog(@"소리 ㄱ");
-            boolalart=true;
-            [alert dismissViewControllerAnimated:YES completion:nil];
-            AlamMsg = @"내리실 곳에 도착하였습니다. 알림을 종료합니다.";
             
+            if(alarmMode==false){
+                AlamMsg = @"목적지에 근접하였습니다. 알림을 종료합니다.";
+                alarmMode=true;
+            }
+            NSMutableArray *fake;
+            fake = [AlarmArray mutableCopy];
+            AlarmArray = [@[] mutableCopy];
+            
+            for(int num=0;self.modelAlarm.selectedAlarm>num;num++)
+            {
+                
+                if(num==AlarmButton.tag)
+                {
+                    [AlarmArray addObject:@{ @"bool": @"false"}];
+                }
+                else{
+                    NSDictionary *alarmInfo = fake[num];
+                    NSString *Bool = alarmInfo[@"bool"];
+                    [AlarmArray addObject:@{ @"bool": Bool}];
+                }
+            }
+            IsAlarm=false;
+            [myTimerStart invalidate];
+            myTimerStart = nil;
             UIImage *buttonImage = [UIImage imageNamed:@"AlarmOff.jpeg"];
             [AlarmButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+            
         }
     }
-    [self AlertAlarm:BusNum Message:AlamMsg];
-    
+    if([AlamMsg isEqualToString:@""]==false)
+    {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+        [self AlertAlarm:BusNum Message:AlamMsg];
+    }
     
 
     if([self.modelAlarm.selectedRemain isEqualToString: Remain]==true) // false 여야함.
