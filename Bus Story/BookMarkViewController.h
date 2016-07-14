@@ -16,6 +16,9 @@
     NSMutableArray *AlarmArray;
     Boolean IsAlarm;
     NSTimer *myTimerStart;
+    Boolean boolAlarm;
+    Boolean boolalart;
+    UIButton *AlarmButton;
 }
 
 @property (nonatomic, strong) BookMarkModel *modelBookMark;

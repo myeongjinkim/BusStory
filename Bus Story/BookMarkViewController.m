@@ -36,6 +36,7 @@ enum cellBusList{
     AlarmArray = [@[] mutableCopy];
     [[self tableView] setRowHeight:100.0f];
     IsAlarm=false;
+    boolAlarm = false;
     UILocalNotification *localNotif = [[UILocalNotification alloc]init];
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotif];
     
@@ -87,7 +88,6 @@ enum cellBusList{
         UILabel *labelRemainBusStop;
         //UISwitch *AlarmSwitch;
         UIButton *AlarmButton;
-        
         
         labelBusStopName = (UILabel *)[cell viewWithTag:BUSSTOPNAME];
         labelFinishBusStop = (UILabel *)[cell viewWithTag:FINISHBUSSTOP];
@@ -143,7 +143,7 @@ enum cellBusList{
 
 -(void)buttonClicked:(id)sender
 {
-    UIButton *AlarmButton = sender;
+    AlarmButton = sender;
     
     NSDictionary *dicInfo = AlarmArray[AlarmButton.tag];
     NSString *Bool = dicInfo[@"bool"];
@@ -213,7 +213,6 @@ enum cellBusList{
         NSString *msg = @"이미 다른버스 알림을 받고 계십니다.";
         [self AlertAlarm:msg Message:nil];
     }
-   
 }
 
 
@@ -227,7 +226,7 @@ enum cellBusList{
     NSString *BGetInBusStopName = bookMarkInfo[@"getinbusstopname"];
     NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstop"];
     NSString *BRemainBusStop = bookMarkInfo[@"remainbusstop"];
-    
+    boolalart=true;
     
     [self.modelAlarm setAlarm:BAlarmSet BusNum:BBusNum GetInBusStopName:BGetInBusStopName GetOutBusStopName:BGetOutBusStopName RemainBusStop:BRemainBusStop];
     
@@ -237,7 +236,7 @@ enum cellBusList{
     NSString *GetInBusStopName = [dicInfo[@"getinbusstopname"] stringByAppendingString:@" -> "];
     NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
     NSString *GetInOut = [GetInBusStopName stringByAppendingString:GetOutBusStopName];
-    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
+    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
     NSString *BusNumMsg = [BusNum stringByAppendingString:@" 알람"];
     NSString *msg = [[BusNum stringByAppendingString:@"번 " ] stringByAppendingString:RemainBusStop];
     NSLog(@" %@, %@, %@, %@, %@", AlarmSet, BusNum, GetInBusStopName, GetOutBusStopName, RemainBusStop);
@@ -291,6 +290,7 @@ enum cellBusList{
 
 -(void)AlertAlarm:(NSString *)Title Message:(NSString *)Message
 {
+    
     //알림창
     alert = [UIAlertController alertControllerWithTitle:Title message:Message preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
@@ -316,7 +316,9 @@ enum cellBusList{
     NSString *BGetInBusStopName = bookMarkInfo[@"getinbusstopname"];
     NSString *BGetOutBusStopName = bookMarkInfo[@"getoutbusstop"];
     NSString *BRemainBusStop = bookMarkInfo[@"remainbusstop"];
-    
+    NSString *BRemainBusStop2 = bookMarkInfo[@"remainbusstop2"];
+     NSString *Accelerometer = bookMarkInfo[@"accelerometer"];
+     NSString *BusLoation = bookMarkInfo[@"buslocation"];
     
     [self.modelAlarm setAlarm:BAlarmSet BusNum:BBusNum GetInBusStopName:BGetInBusStopName GetOutBusStopName:BGetOutBusStopName RemainBusStop:BRemainBusStop];
     
@@ -326,16 +328,66 @@ enum cellBusList{
     //NSString *GetInBusStopName = [dicInfo[@"getinbusstopname"] stringByAppendingString:@" -> "];
     //NSString *GetOutBusStopName = dicInfo[@"getoutbusstop"];
     //NSString *GetInOut = [GetInBusStopName stringByAppendingString:GetOutBusStopName];
-    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전 출발"];
+    NSString *RemainBusStop = [dicInfo[@"remainbusstop"] stringByAppendingString:@"번째전"];
+    
+    NSString *RemainBusStop2 = [BRemainBusStop2 stringByAppendingString:@"번째전"];
+    
     NSString *Remain = dicInfo[@"remainbusstop"];
     //NSString *BusNumMsg = [BusNum stringByAppendingString:@" 알람"];
     NSString *msg = [[BusNum stringByAppendingString:@"번 " ] stringByAppendingString:RemainBusStop];
+    NSString *AlamMsg= @"";
+    
+    if([BGetInBusStopName isEqualToString:BusLoation] && [Accelerometer isEqualToString:@"false"])
+    {
+        //승차알림
+        NSLog(@"버스지나감");
+        
+        if(boolalart==true){
+            [alert dismissViewControllerAnimated:YES completion:nil];
+            AlamMsg=@"버스를 놓치셨습니다. 다음 버스를 알람해 드립니다.";
+            boolalart=false;
+            
+        }
+        
+        
+    }
+    else if([BGetInBusStopName isEqualToString:BusLoation] && [Accelerometer isEqualToString:@"true"])
+    {
+        //하차알림
+        NSLog(@"버스탐.");
+        
+        if(boolalart==true){
+        
+            AlamMsg =  @"승차하셨습니다. 하차 알람해 드립니다.";
+           boolalart=false;
+            
+        }
+        
+        msg = [[BusNum stringByAppendingString:@"번 하차 " ] stringByAppendingString:RemainBusStop2];
+        
+        int NAlarmSet = [AlarmSet intValue];
+        int NRemainBusStop2 = [BRemainBusStop2 intValue];
+        NSLog(@"%@ %@",AlarmSet, BRemainBusStop2);
+        if(NAlarmSet==NRemainBusStop2)
+        {
+            NSLog(@"소리 ㄱ");
+            boolalart=true;
+            [alert dismissViewControllerAnimated:YES completion:nil];
+            AlamMsg = @"내리실 곳에 도착하였습니다. 알림을 종료합니다.";
+            
+            UIImage *buttonImage = [UIImage imageNamed:@"AlarmOff.jpeg"];
+            [AlarmButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        }
+    }
+    [self AlertAlarm:BusNum Message:AlamMsg];
+    
     
 
-    if([self.modelAlarm.selectedRemain isEqualToString: Remain]==false)
+    if([self.modelAlarm.selectedRemain isEqualToString: Remain]==true) // false 여야함.
     {
-        [self alarmFinish];
     
+        [self alarmFinish];
+        
     
         UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
         UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
@@ -353,8 +405,17 @@ enum cellBusList{
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
         NSLog(@"생성");
+    
+        if(boolAlarm==true)
+        {
         
-        self.modelAlarm.selectedRemain=dicInfo[@"remainbusstop"];
+            self.modelAlarm.selectedRemain=dicInfo[@"remainbusstop"];
+    
+        }
+        boolAlarm=true;
+    }
+    else{
+        boolAlarm=false;
     }
     
 
